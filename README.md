@@ -7,7 +7,8 @@
 
 `SEMESTRE: 1º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O sistema proposto tem como objetivo facilitar o processo de adoção de animais, permitindo que usuários visualizem pets disponíveis e realizem solicitações de adoção de forma simples e intuitiva.
+A interface foi projetada com foco na usabilidade, buscando oferecer uma navegação clara, acessível e organizada, atendendo diferentes perfis de usuários.
 
 ## Integrantes
 
