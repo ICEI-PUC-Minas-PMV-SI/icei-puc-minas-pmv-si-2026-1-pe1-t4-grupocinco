@@ -25,22 +25,19 @@ authors:
     email:
     affiliation: PUC Minas
   - given-names: Daniel
-    family-names: 
+    family-names: Araújo Reis
     email:
     affiliation: PUC Minas
   - given-names: João
     family-names: Ferrari dos Santos
     email:
     affiliation: PUC Minas
-
     name-suffix: Prof.
     given-names: Caroline
     family-names:Rhaian da Silva Jandre
     email: 
     affiliation: PUC Minas
     orcid: 'https://orcid.org/0000-0002-6193-3205'
-
-
 repository-code: >-
   https://github.com/ICEI-PUC-Minas-PMV-SI/icei-puc-minas-pmv-si-2026-1-pe1-t4-grupocinco
 abstract: >-
