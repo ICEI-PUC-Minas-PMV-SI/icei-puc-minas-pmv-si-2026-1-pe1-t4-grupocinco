@@ -17,7 +17,7 @@ A interface foi projetada com foco na usabilidade, buscando oferecer uma navega�
 * João Victor Ferrari dos Santos
 * Lucas Assis Dias de Castro
 * Rafael PAiva Moura Diniz Lara
-* João Victor Ferrari dos Santos
+* Daniel de Araújo Reis
 
 
 ## Orientador
