@@ -8,22 +8,44 @@ message: >-
   Web da PUC Minas.
 type: software
 authors:
-  - given-names: Aluno 1
-    family-names: Nome Completo
-    email: aluno@pucminas.br
+  - given-names: Matheus
+    family-names: Eiras da Silva
+    email:1295100@sga.pucminas.br
     affiliation: PUC Minas
-  - given-names: Hugo
-    name-particle: 'B '
-    family-names: de Paula
+  - given-names: Blenda
+    family-names: Carvalho de Camargos
+    email:
+    affiliation: PUC Minas
+  - given-names: Rafael
+    family-names: Moura Diniz Lara
+    email:
+    affiliation: PUC Minas
+  - given-names: Lucas
+    family-names: Dias de Castro
+    email:
+    affiliation: PUC Minas
+  - given-names: Daniel
+    family-names: 
+    email:
+    affiliation: PUC Minas
+  - given-names: João
+    family-names: Ferrari dos Santos
+    email:
+    affiliation: PUC Minas
+
     name-suffix: Prof.
-    email: hugo@pucminas.br
+    given-names: Caroline
+    family-names:Rhaian da Silva Jandre
+    email: 
     affiliation: PUC Minas
     orcid: 'https://orcid.org/0000-0002-6193-3205'
+
+
 repository-code: >-
-  https://github.com/ICEI-PUC-Minas-PMV-SI/WebApplicationProject-Template
+  https://github.com/ICEI-PUC-Minas-PMV-SI/icei-puc-minas-pmv-si-2026-1-pe1-t4-grupocinco
 abstract: >-
-  Descrever resumidamente, em um ou dois parágrafos, o
-  projeto que foi desenvolvido.
+O sistema proposto tem como objetivo facilitar o processo de adoção de animais, permitindo que usuários visualizem pets disponíveis e realizem solicitações de adoção de forma simples e intuitiva.
+A interface foi projetada com foco na usabilidade, buscando oferecer uma navegação clara, acessível e organizada, atendendo diferentes perfis de usuários.
 keywords:
   - Desenvolvimento Web
   - HTML
