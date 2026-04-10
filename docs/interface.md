@@ -1,72 +1,38 @@
 
 # Projeto de Interface
 
-## Visão Geral
+Visão geral da interação do usuário pelas telas do sistema e protótipo interativo das telas com as funcionalidades que fazem parte do sistema (wireframes).
 
-O sistema proposto tem como objetivo facilitar o processo de adoção de animais, permitindo que usuários visualizem pets disponíveis e realizem solicitações de adoção de forma simples e intuitiva.
+ Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
 
-A interface foi projetada com foco na usabilidade, buscando oferecer uma navegação clara, acessível e organizada, atendendo diferentes perfis de usuários.
+## User Flow
 
----
+![Exemplo de UserFlow](img/userflow.jpg)
 
-## Fluxo do Sistema
+Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
 
-O fluxo do sistema foi estruturado para proporcionar uma experiência simples e direta ao usuário.
+> **Links Úteis**:
+> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
+> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
+> - [Top 25 User Flow Tools & Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
 
-Inicialmente, o usuário acessa a página inicial (Home), onde encontra um botão para visualizar os animais disponíveis para adoção.
 
-Ao clicar em “Ver animais”, o usuário é direcionado para a página de listagem, onde são exibidos os animais cadastrados.
+## Wireframes
 
-Nessa tela, o usuário pode navegar entre as opções e selecionar um animal de interesse.
+São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface e é fundamental sempre relacionar cada wireframe com o(s) requisito(s) que ele atende.
 
-Ao selecionar um animal, o usuário é direcionado para a página de detalhes, onde pode visualizar informações completas, como nome, idade, descrição e imagem do animal.
+### Exemplo
 
-Caso tenha interesse, o usuário pode clicar no botão “Adotar”, sendo então redirecionado para um formulário onde deverá preencher seus dados para realizar a solicitação de adoção.
+A tela inicial apresenta um menu lateral com as principais seções do portal, enquanto a navigation bar, ao topo, apresenta informações de envio de imagens ou navegação pela galeria de fotos. A área central apresenta a galeria de fotos na forma de uma grade. Nesta tela, são apresentados os seguintes requisitos
 
----
+![Exemplo de Wireframe](img/wireframe-example.png)
 
-## Wireframes (Telas do Sistema)
-
-Foram desenvolvidos wireframes com o objetivo de representar a estrutura das principais telas do sistema, priorizando a organização dos elementos e a experiência do usuário.
-
-A página inicial (Home) apresenta o nome do sistema, uma breve descrição e um botão de acesso à listagem de animais.
-
-A página de listagem de animais exibe os pets disponíveis em formato de cards, contendo imagem, nome e um botão para visualizar mais detalhes.
-
-A página de detalhes do animal apresenta informações completas, como descrição, idade e imagem ampliada, além de um botão para iniciar o processo de adoção.
-
-A página de formulário de adoção permite que o usuário insira seus dados pessoais, como nome, telefone e justificativa para adoção.
-
----
-
-## Decisões de Interface
-
-As decisões de interface foram tomadas com base na simplicidade e na facilidade de uso.
-
-A utilização de botões destacados foi adotada para facilitar a navegação do usuário, permitindo identificar rapidamente as principais ações disponíveis.
-
-A organização das informações em formato de cards na tela de listagem contribui para uma melhor visualização dos animais e torna a interface mais agradável.
-
-A separação entre a tela de detalhes e o formulário de adoção foi definida para evitar sobrecarga de informações e tornar o processo mais organizado.
-
-Além disso, a interface foi pensada para ser intuitiva e acessível, atendendo usuários com diferentes níveis de familiaridade com tecnologia.
-
----
-
-## Público-alvo
-
-O sistema é destinado a pessoas interessadas em adotar animais, bem como organizações ou responsáveis que disponibilizam pets para adoção.
-
-A interface foi pensada para atender usuários com diferentes níveis de familiaridade com tecnologia, priorizando simplicidade, clareza e acessibilidade.
-
----
-
-## Histórias de Usuário
-
-Como usuário, quero visualizar os animais disponíveis para adoção, para que eu possa escolher um pet de acordo com minhas preferências.
-
-Como usuário, quero acessar os detalhes de um animal, para obter informações como idade, descrição e características antes de decidir adotá-lo.
-
-Como usuário, quero preencher um formulário de adoção, para solicitar a adoção de forma prática e organizada.
-
-Como usuário, quero ter uma navegação simples e intuitiva, para conseguir utilizar o sistema sem dificuldades.
+ 
+> **Links Úteis**:
+> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
+> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
+> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+> - [Figma](https://www.figma.com/)
+> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
+> - [Axure](https://www.axure.com/edu) (Licença Educacional)
+> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
