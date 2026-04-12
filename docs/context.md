@@ -22,16 +22,15 @@ Além disso, abrigos e protetores independentes enfrentam dificuldades para divu
 
 ### Objetivo Geral
 
-Desenvolver uma aplicação web que facilite a conexão entre pessoas interessadas em adotar animais e instituições ou protetores responsáveis, promovendo a adoção de forma simples e acessível.
+Desenvolver uma aplicação web que auxilie no processo de adoção de animais, promovendo a conexão entre adotantes e responsáveis pelos pets de forma organizada, acessível e eficiente.
 
 ### Objetivos Específicos
 
-- Criar uma interface intuitiva para visualização de animais disponíveis para adoção  
-- Permitir o cadastro de usuários interessados em adotar ou divulgar animais  
-- Organizar informações como idade, porte, localização e status do animal  
-- Facilitar o contato entre adotantes e responsáveis  
-- Promover a adoção responsável por meio de informações claras  
-
+- Analisar o problema do abandono de animais e as dificuldades enfrentadas no processo de adoção  
+- Investigar como o uso de plataformas digitais pode contribuir para a adoção responsável  
+- Identificar as necessidades e expectativas dos usuários envolvidos (adotantes e protetores)  
+- Avaliar as limitações das soluções atualmente utilizadas, como redes sociais e meios informais  
+- Propor uma solução digital que centralize informações e facilite o processo de adoção  
 ---
 
 ## Justificativa
