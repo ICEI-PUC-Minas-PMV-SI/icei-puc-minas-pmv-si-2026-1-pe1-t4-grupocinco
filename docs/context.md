@@ -41,7 +41,7 @@ Com o avanço da tecnologia e o aumento do acesso à internet, soluções digita
 
 ---
 
-## Público-Alvo
+## Público-alvo
 
 O público-alvo da aplicação é composto por pessoas interessadas em adotar animais, protetores independentes e organizações de resgate.
 
