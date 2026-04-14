@@ -16,7 +16,7 @@ A interface foi projetada com foco na usabilidade, buscando oferecer uma navega�
 * Blenda Júlia Carvalho de Camargos
 * João Victor Ferrari dos Santos
 * Lucas Assis Dias de Castro
-* Rafael PAiva Moura Diniz Lara
+* Rafael Paiva Moura Diniz Lara
 * Daniel de Araújo Reis
 
 
