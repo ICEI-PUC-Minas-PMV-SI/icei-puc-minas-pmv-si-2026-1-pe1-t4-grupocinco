@@ -1,78 +1,86 @@
 # Especificações do Projeto
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto.
-
-Caso deseje atribuir uma imagem a sua persona, utilize o site https://thispersondoesnotexist.com/
-
 ## Personas
+Perfis de Usuários - Perfil de quem irá acessar a aplicação
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+|Doador  | Descrição  | 
+|--------|------------|
+|Nome|Helena Soares|  
+|Idade| 34 anos|
+|Endereço|Residente em Jardim América, BH|
+|Detalhes| Helena mora em BH sozinha à muitos anos, natural de rio acima, possui uma excelente relação com seu fiel escudeiro Beto, um cachorro vira lata de porte médio. Porém Helena passa por uma grave crise financeira, necessitando voltar à sua cidade natal, onde não terá os meios necessários para cuidar do leal Beto. Ela se sente culpada e não éseu desejo abandonar o cão. Ela se registra no site e busca alguém tranquilo que possa cuidar bem de sua criação.|
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+|Adotante  | Descrição  | 
+|--------|------------|
+|Nome|Marcos Almeida|  
+|Idade| 26 anos|
+|Endereço|Residente em Barreiro , BH|
+|Detalhes| Marcos é um jovem trabalhador, mora com sua mãe em uma casa com quintal. Gosta muito de animais e busca companhia para seus dias.Possui renda fixa e o desejo ardente por adotar um cachorro, logo se cadastrou no site e busca um cão de porte médio.|
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+|Adotante  | Descrição  | 
+|--------|------------|
+|Nome|Ludmilla Lara|  
+|Idade| 51 anos|
+|Endereço|Residente em Buritis, BH|
+|Detalhes| Ludmilla é uma programadora que mora em um apartamento sozinha, tem profunda admiração pela lealdade dos cães e após o falecimento de sua esposa busca um cachorro pequeno para lhe acompanhar.|
+
+Se aprovado, o perfil terá acesso à uma rede social de adoção onde tanto o adotante quanto o doador trocarão contatos por compatibilidade previamente analisada.
+
 
 ## Histórias de Usuários
+|Eu como    | ...Quero/Desejo que... | ...Para.. | 
+|------|-----------------------------------------|----| 
+|DOADOR| Quero criar uma conta | Para acessar a plataforma.|  
+|DOADOR| Quero cadastrar pets  | Para serem escolhidos. | 
+|DOADOR| Quero gerenciar pets  | Para controlar quais foram e não foram adotados. | 
+|DOADOR| Desejo receber candidatos  |Para poder avaliá-los.| 
+|DOADOR| Desejo avaliar adotantes  | Para decidir qual deles é o mais adequado para o pet. | 
+|DOADOR| Quero aprovar a adoção   | Para encerrar o processo deescolha do tutor. | 
+|ADOTANTE| Quero criar uma conta   | Para acessar a plataforma.| 
+|ADOTANTE| Desejo visualizar pets disponíveis  | Para poder ler as informações de cada um. | 
+|ADOTANTE|  Desejo filtrar pets  | Para restringir os pets que melhor atendem à minha realidade. | 
+|ADOTANTE|  Quero me candidatar à adoção  | Para poder ficar com um pet. | 
+|ADOTANTE| Desejo acompanhar o status da candidatura   | Para saber se serei selecionado como tutor do pet escolhido. | 
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
-
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+Com base nas informações apresentadas, o projeto irá conectar ONGs e adotantes para
+facilitar o processo de adoção. Para isso, o site utilizará diversas ferramentas para melhorar
+a experiência do usuário, como por exemplo a criação de uma conta e descrição detalhada
+dos pets. Com isso, a plataforma será dinâmica e de fácil uso, para atender às
+necessidades do usuário.
 
 ### Requisitos Funcionais
 
 |ID    | Descrição do Requisito  | Prioridade | 
 |------|-----------------------------------------|----| 
-|RF-001| A aplicação deve permitir que o usuário gerencie suas tarefas | ALTA |  
-|RF-002| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-001| O sistema deve permitir o cadastro de doadores e adotantes na plataforma com informações como nome, e-mail, telefone,endereço e senha. | Alta |  
+|RF-002| O sistema deve permitir que doadores e adotantes cadastrados realizem login na plataforma utilizando e-mail e senha.   | Alta | 
+|RF-003| O sistema deve permitir que doadores cadastrem pets disponíveis para adoção informando características como nome, espécie, raça, idade, porte, vacinas, comportamento e fotos.   | Alta | 
+|RF-004| O sistema deve permitir que doadores gerenciem (editar, remover, visualizar) as informações de pets cadastrados.   | Média | 
+|RF-005| O sistema deve permitir que adotantes visualizem os pets disponíveis para adoção.   | MÉDIA | 
+|RF-006| O sistema deve permitir que adotantes filtrem pets por critérios como doador, espécie, idade, porte ou localização.   | MÉDIA | 
+|RF-007| O sistema deve permitir que adotantes visualizem os detalhes completos de um pet, incluindo descrição e fotos.  | MÉDIA | 
+|RF-008| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-009| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-010| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-011| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-012| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-013| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-014| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-015| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
 
 
 ### Requisitos não Funcionais
-
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| A aplicação deve ser responsiva | MÉDIA | 
-|RNF-002| A aplicação deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+|ID     | Descrição do Requisito  | Prioridade | 
+|-------|-----------------------------------------|----| 
+|RNF-001| O sistema deve possuir menus claros e navegação acessível. | Média |  
+|RNF-002| As informações dos cadastros devem ser armazenadas de forma consistente e sem perdas. | Alta |  
+|RNF-003| O sistema deve funcionar um múltiplas plataformas. | Média |  
+|RNF-004| O sistema tem que ser capaz de armazenar de forma segura as informações dos usuários. | Alta |  
+|RNF-005| O sistema tem que ter disponibilidade 24h. | Média |  
+|RNF-006| O sistema deve suportar no mínimo 500 usuários simultâneos sem degradação perceptível de desempenho. | Alta |  
 
 ## Restrições
 
@@ -83,9 +91,20 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
 
+## Referências Bibliográficas
+|ID| Descrição                                             |
+|--|-------------------------------------------------------|
+|01| BRASIL. Lei nº 9.605, de 12 de fevereiro de 1998. Dispõe sobre as sanções penais e administrativas derivadas de condutas e atividades lesivas ao meio ambiente. Diário Oficial da União: Brasília, DF, 13 fev. 1998.|
+|02| CODIFICAR. Requisitos funcionais e requisitos não funcionais: o que são? Codificar,[s.d.]. Disponível em: https://codificar.com.br/requisitos-funcionais-nao-funcionais/. Acessoem: 14 mar. 2026.|
+|03| INSTITUTO PET BRASIL. Censo da população de cães e gatos em situação de abandono no Brasil. São Paulo: Instituto Pet Brasil, 2023.|
+|04| ISABELLA, Larissa. ONGs protegem os direitos dos animais. PUC-SP, 28 jun. 2022.Disponível em: https://agemt.pucsp.br/noticias/ongs-protegem-os-direitos-dos-animais.Acesso em: 16 mar. 2026.|
+|05| MATOS, Thaís. ONGs de animais: conheça as maiores ONGs do Brasil. DogHero, [s.d.].Disponível em: https://love.doghero.com.br/dicas/ong-de-animais/. Acesso em: 16 mar.2026.|
+|06| ORGANIZAÇÃO MUNDIAL DA SAÚDE. Dog population management guidelines.Genebra: World Health Organization, 2019.|
+|07| SANTOS, Larissa dos. Como escrever boas user stories (histórias de usuários). Medium, 25 abr. 2017. Disponível em: https://medium.com/vertice/como-escrever-boasusers-stories-hist%C3%B3rias-de-usu%C3%A1rios b29c75043fac. Acesso em: 14 mar.2026.|
+|08| SILVA, A.; PEREIRA, M. Adoção responsável e proteção animal no Brasil. Revista Brasileira de Estudos Sociais, 2021.|
+|09| VELASCO, Clara. Brasil tem mais de 170 mil animais abandonados sob cuidado de ONGs, aponta instituto. G1, 18 ago. 2019. Disponível em: https://g1.globo.com/sp/saopaulo/noticia/2019/08/18/brasil-tem-mais-de-170-mil animais-abandonados-sob-cuidado-deongs-aponta-instituto.ghtml. Acesso em: 16 mar. 2026.|
+|10| INSTITUTO PET BRASIL. Censo Pet: 4,8 milhões de cães e gatos vivem em situação de vulnerabilidade no Brasil. São Paulo: Instituto Pet Brasil, 2024. Disponível em: https://institutopetbrasil.com. Acesso em: 17 mar. 2026.|
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+
+
