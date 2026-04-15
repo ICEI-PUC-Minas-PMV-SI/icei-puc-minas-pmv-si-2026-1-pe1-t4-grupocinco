@@ -28,19 +28,19 @@ Se aprovado, o perfil terá acesso à uma rede social de adoção onde tanto o a
 
 
 ## Histórias de Usuários
-|Eu como    | ...Quero/Desejo que... | ...Para.. | 
+|Eu como    | ...Quero/Desejo que... | ...Para... | 
 |------|-----------------------------------------|----| 
-|DOADOR| Quero criar uma conta | Para acessar a plataforma.|  
-|DOADOR| Quero cadastrar pets  | Para serem escolhidos. | 
-|DOADOR| Quero gerenciar pets  | Para controlar quais foram e não foram adotados. | 
-|DOADOR| Desejo receber candidatos  |Para poder avaliá-los.| 
-|DOADOR| Desejo avaliar adotantes  | Para decidir qual deles é o mais adequado para o pet. | 
-|DOADOR| Quero aprovar a adoção   | Para encerrar o processo deescolha do tutor. | 
-|ADOTANTE| Quero criar uma conta   | Para acessar a plataforma.| 
-|ADOTANTE| Desejo visualizar pets disponíveis  | Para poder ler as informações de cada um. | 
-|ADOTANTE|  Desejo filtrar pets  | Para restringir os pets que melhor atendem à minha realidade. | 
-|ADOTANTE|  Quero me candidatar à adoção  | Para poder ficar com um pet. | 
-|ADOTANTE| Desejo acompanhar o status da candidatura   | Para saber se serei selecionado como tutor do pet escolhido. | 
+|Doador| Quero criar uma conta | Para acessar a plataforma.|  
+|Doador| Quero cadastrar pets  | Para serem escolhidos. | 
+|Doador| Quero gerenciar pets  | Para controlar quais foram e não foram adotados. | 
+|Doador| Desejo receber candidatos  |Para poder avaliá-los.| 
+|Doador| Desejo avaliar adotantes  | Para decidir qual deles é o mais adequado para o pet. | 
+|Doador| Quero aprovar a adoção   | Para encerrar o processo deescolha do tutor. | 
+|Adotante| Quero criar uma conta   | Para acessar a plataforma.| 
+|Adotante| Desejo visualizar pets disponíveis  | Para poder ler as informações de cada um. | 
+|Adotante|  Desejo filtrar pets  | Para restringir os pets que melhor atendem à minha realidade. | 
+|Adotante|  Quero me candidatar à adoção  | Para poder ficar com um pet. | 
+|Adotante| Desejo acompanhar o status da candidatura   | Para saber se serei selecionado como tutor do pet escolhido. | 
 
 
 ## Requisitos
@@ -59,17 +59,17 @@ necessidades do usuário.
 |RF-002| O sistema deve permitir que doadores e adotantes cadastrados realizem login na plataforma utilizando e-mail e senha.   | Alta | 
 |RF-003| O sistema deve permitir que doadores cadastrem pets disponíveis para adoção informando características como nome, espécie, raça, idade, porte, vacinas, comportamento e fotos.   | Alta | 
 |RF-004| O sistema deve permitir que doadores gerenciem (editar, remover, visualizar) as informações de pets cadastrados.   | Média | 
-|RF-005| O sistema deve permitir que adotantes visualizem os pets disponíveis para adoção.   | MÉDIA | 
-|RF-006| O sistema deve permitir que adotantes filtrem pets por critérios como doador, espécie, idade, porte ou localização.   | MÉDIA | 
-|RF-007| O sistema deve permitir que adotantes visualizem os detalhes completos de um pet, incluindo descrição e fotos.  | MÉDIA | 
-|RF-008| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
-|RF-009| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
-|RF-010| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
-|RF-011| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
-|RF-012| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
-|RF-013| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
-|RF-014| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
-|RF-015| A aplicação deve permitir a emissão de um relatório de tarefas realizadas no mês   | MÉDIA | 
+|RF-005| O sistema deve permitir que adotantes visualizem os pets disponíveis para adoção.   | Alta | 
+|RF-006| O sistema deve permitir que adotantes filtrem pets por critérios como doador, espécie, idade, porte ou localização.   | Média | 
+|RF-007| O sistema deve permitir que adotantes visualizem os detalhes completos de um pet, incluindo descrição e fotos.  | Alta | 
+|RF-008| O sistema deve permitir que adotantes enviem candidatura para adoção de um pet.   | Alta | 
+|RF-009| O sistema deve disponibilizar um formulário de candidatura solicitando informações adicionais ao adotante, como tipo de moradia e experiência com animais.  | Alta | 
+|RF-010| O sistema deve permitir que doadores gerenciem (visualizar, aceitar, rejeitar, etc) o perfil completo do candidato interessado na adoção.  | Média | 
+|RF-011| O sistema deve atualizar o status da candidatura (pendente, aprovada ou rejeitada).  | Alta | 
+|RF-012| O sistema deve notificar o doador quando um novo candidato enviar uma solicitação de adoção.  | Média | 
+|RF-013| O sistema deve notificar o adotante quando sua candidatura for analisada pelo doador.   | Média | 
+|RF-014| O sistema deve permitir que adotantes visualizem o histórico de suas candidaturas enviadas.   | Baixa | 
+|RF-015| O sistema deve permitir que doadores visualizem o histórico de adoções realizadas.  | Baixa | 
 
 
 ### Requisitos não Funcionais
