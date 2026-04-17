@@ -43,11 +43,3 @@ A interface foi projetada com foco na usabilidade, buscando oferecer uma navega�
 <li><a href="presentation/README.md"> Apresentação da solução</a></li>
 
 
-
-# Wireframes do projeto linkados abaixo:
-
-<img width="1408" height="768" alt="wireframe lar certo" src="https://github.com/user-attachments/assets/d8e75039-3a0f-4f4e-b7a2-6ea5dc0cb26c" />
-
-
-# Prototipo:
-https://www.figma.com/make/YKeoiiQ6OVUps1m8r2fKiz/Wireframes-for-Dog-Adoption-Social-Network?p=f&t=GzYvBCB2mKURTniW-0
