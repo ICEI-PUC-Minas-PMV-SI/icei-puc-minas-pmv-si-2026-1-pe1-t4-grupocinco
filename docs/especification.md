@@ -42,6 +42,8 @@ Se aprovado, o perfil terá acesso à uma rede social de adoção onde tanto o a
 |Adotante|  Quero me candidatar à adoção  | Para poder ficar com um pet. | 
 |Adotante| Desejo acompanhar o status da candidatura   | Para saber se serei selecionado como tutor do pet escolhido. | 
 
+A referência utilizada nesta parte foi (SANTOS, 2017).
+
 
 ## Requisitos
 
@@ -49,7 +51,7 @@ Com base nas informações apresentadas, o projeto irá conectar ONGs e adotante
 facilitar o processo de adoção. Para isso, o site utilizará diversas ferramentas para melhorar
 a experiência do usuário, como por exemplo a criação de uma conta e descrição detalhada
 dos pets. Com isso, a plataforma será dinâmica e de fácil uso, para atender às
-necessidades do usuário.
+necessidades do usuário, (CODIFICAR, s.d.).
 
 ### Requisitos Funcionais
 
