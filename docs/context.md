@@ -2,11 +2,11 @@
 
 ## Contextualização
 
-Nos últimos anos, o abandono de animais tem se tornado um problema social significativo no Brasil, impactando diretamente o bem-estar animal e a saúde pública. De acordo com organizações de proteção animal, milhões de cães e gatos vivem em situação de abandono, dependendo de abrigos ou da ajuda da população.
+Nos últimos anos, o abandono de animais tem se tornado um problema social significativo no Brasil, impactando diretamente o bem-estar animal e a saúde pública. De acordo com organizações de proteção animal, milhões de cães e gatos vivem em situação de abandono, dependendo de abrigos ou da ajuda da população, [01],[03],[10].
 
 Paralelamente, o uso da internet tem crescido como meio de conexão entre pessoas e serviços, criando oportunidades para soluções digitais que facilitem processos do dia a dia. Nesse contexto, plataformas online podem atuar como intermediadoras entre pessoas interessadas em adotar animais e instituições responsáveis pelo resgate.
 
-Entretanto, muitas das soluções atuais apresentam limitações, como falta de organização, baixa usabilidade ou pouca visibilidade dos animais disponíveis, o que dificulta o processo de adoção[4],[8].
+Entretanto, muitas das soluções atuais apresentam limitações, como falta de organização, baixa usabilidade ou pouca visibilidade dos animais disponíveis, o que dificulta o processo de adoção[04],[08].
 
 ---
 
