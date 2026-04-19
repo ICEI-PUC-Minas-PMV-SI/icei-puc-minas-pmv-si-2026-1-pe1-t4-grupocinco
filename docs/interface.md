@@ -19,30 +19,48 @@ Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapea
 
 ## Wireframes
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface e é fundamental sempre relacionar cada wireframe com o(s) requisito(s) que ele atende.
-
-### Exemplo
-
-A tela inicial apresenta um menu lateral com as principais seções do portal, enquanto a navigation bar, ao topo, apresenta informações de envio de imagens ou navegação pela galeria de fotos. A área central apresenta a galeria de fotos na forma de uma grade. Nesta tela, são apresentados os seguintes requisitos
-
-![Exemplo de Wireframe](img/wireframe-example.png)
-
  
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
+<img width="1408" height="768" alt="Image" src="https://github.com/user-attachments/assets/5cea47da-9494-42f6-84c9-477a9a201fd1" />
 
+Esta interface apresenta os animais disponíveis para adoção, podendo ser acessada por meio do botão de destaque na página anterior ou através da opção "Pets" no menu superior. A tela dispõe de um menu lateral destinado à aplicação de filtros, visando otimizar a busca. Na seção superior, uma barra de pesquisa permite a localização de animais por características específicas, tais como raça e porte. Os botões de autenticação (login) e cadastro permanecem visíveis; contudo, o acesso às funcionalidades detalhadas do sistema exige que o usuário realize o login previamente.
+ 
+<img width="1347" height="727" alt="Image" src="https://github.com/user-attachments/assets/c77b23a2-6225-424b-af52-946908b52527" />
 
-# Wireframes do projeto linkados abaixo:
+O redirecionamento para esta interface ocorre ao selecionar os botõe "Login/Cadastro", presente nas telas anteriores, ou ao tentar acessar seções restritas que não correspondam à página inicial ou à listagem de animais. A tela dispõe de campos de entrada para a inserção de credenciais (login e senha), além de permitir a seleção do perfil de acesso: doador ou adotante. Na seção inferior, encontram-se dois comandos distintos: o botão de confirmação para usuários já cadastrados e o botão de registro, que direciona o indivíduo a uma nova interface específica para a realização do cadastro no sistema.
 
-<img width="825" height="750" alt="Image" src="https://github.com/user-attachments/assets/a6e9d11c-b630-44aa-80ea-1217ca0c14b8" />
-<img width="1376" height="768" alt="2wireframes Lar certo" src="https://github.com/user-attachments/assets/173f3fd3-5bf7-4283-b221-44b2f239832c" />
-<img width="1376" height="768" alt="3wireframes Lar certo" src="https://github.com/user-attachments/assets/5f882e54-78ec-48b6-a56d-6fa9f3e1f3cc" />
+<img width="825" height="750" alt="Image" src="https://github.com/user-attachments/assets/023bde26-6749-40ea-a9f6-d6c9720d6310" />
+
+Esta interface é destinada ao registro de novos usuários, sendo responsável pela coleta de informações cadastrais iniciais. O preenchimento destes dados é requisito fundamental para a criação da conta no sistema. Ressalta-se que a personalização detalhada e a edição de informações adicionais devem ser realizadas posteriormente, por meio do acesso à seção específica de edição de perfil.
+
+<img width="825" height="750" alt="Image" src="https://github.com/user-attachments/assets/e84d32bf-928d-4b35-a2ec-5d8f99ce9919" />
+
+Esta interface apresenta o perfil detalhado do animal, fornecendo informações sobre suas características, galeria de imagens, localização e dados referentes à autoria e data da publicação. A tela disponibiliza três funcionalidades distintas: a opção de "favoritar", para salvar o perfil; a função de compartilhamento; e o botão de interesse. Este último permite o envio de uma mensagem direta ao atual responsável, formalizando a intenção de adotar o animal.
+
+<img width="1052" height="1152" alt="Image" src="https://github.com/user-attachments/assets/83f006a9-ff78-45e8-b256-370f6336b902" />
+
+Esta interface é acessada após a autenticação sob o perfil de doador, sendo destinada à criação e gestão do animal cadastrado para adoção. A tela apresenta um comando de compartilhamento (identificado pelo ícone de conexão tripla) e um botão de edição(representado por um ícone de lápis) que possibilita a alteração das informações do perfil e por ultimo disponibiliza-se o botão "Interessados" que, ao ser acionado, redireciona o usuário à listagem de indivíduos que manifestaram intenção de adotar o animal.
+
+<img width="1052" height="1152" alt="Image" src="https://github.com/user-attachments/assets/57b1f10c-ebc8-47cd-9efc-fb9176d64c43" />
+
+Esta interface é destinada à comunicação entre os usuários, permitindo o diálogo entre interessados na adoção e os respectivos doadores. A tela apresenta uma barra de busca para a localização de conversas específicas, utilizando como critérios o nome do interlocutor ou a identificação do animal envolvido no processo. No ambiente de chat, disponibiliza-se o envio de mensagens em formato de texto ou áudio, visando facilitar a interação entre as partes.
+
+<img width="1077" height="1168" alt="Image" src="https://github.com/user-attachments/assets/10bcbbcd-700d-4c06-b646-ed3d0dc1b95a" />
+
+Nesta interface, o usuário adotante dispõe da funcionalidade de inclusão de informações complementares, permitindo a personalização detalhada de seu perfil. O processo de edição é viabilizado por meio do acionamento do comando identificado pelo ícone de lápis, localizado na seção principal da tela.
+
+<img width="1173" height="896" alt="Image" src="https://github.com/user-attachments/assets/8fd72ffb-ad38-498e-9c98-c6e255d54325" />
+
+O acesso a esta interface é facultado ao doador exclusivamente no momento em que um usuário adotante manifesta intenção de adotar um animal sob sua responsabilidade. Nesta tela, o doador realiza a análise das informações fornecidas pelo interessado, sendo viabilizada a abertura de um canal de comunicação direto para o prosseguimento do processo de adoção.
+
+<img width="1185" height="1028" alt="Image" src="https://github.com/user-attachments/assets/06483327-6bdf-4fbd-b176-879380a00e8e" />
+
+O acesso a esta interface é restrito ao usuário doador, sendo disponibilizada ao acionar o comando "Interessados" no perfil do animal sob sua responsabilidade. A tela permite a gestão e a filtragem dos adotantes que manifestaram interesse. São apresentadas informações relevantes sobre os interessados, tais como nome, localização e nível de experiência prévia com animais. Adicionalmente, a interface dispõe de um menu lateral destinado à aplicação de filtros, visando otimizar a seleção e a análise dos perfis.
+
+<img width="679" height="707" alt="Image" src="https://github.com/user-attachments/assets/c21c359a-31ab-43d5-9854-1e2e7d35fadd" />
+
+Esta interface apresenta o perfil do usuário doador, permitindo a visualização do histórico de animais já doados e a criação de novos perfis para animais destinados à adoção. A tela disponibiliza campos para a edição de informações de contato e do nome do responsável. Na seção inferior, encontram-se as opções para alteração de senha (identificada pelo ícone de engrenagem) e configurações de preferências de notificação (identificada pelo ícone de sino).
+
+<img width="365" height="600" alt="Image" src="https://github.com/user-attachments/assets/b1484c17-e4e8-4816-9dbf-b3dc5ff6808f" />
 
 
 
