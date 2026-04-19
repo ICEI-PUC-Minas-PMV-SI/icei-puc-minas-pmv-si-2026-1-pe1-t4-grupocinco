@@ -7,14 +7,12 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## User Flow
 
-![Exemplo de UserFlow](img/userflow.jpg)
+![UserFlow](img/userflow.png)
 
 Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
 
-> **Links Úteis**:
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools & Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+A interface apresentada organiza o funcionamento da plataforma LarCerto em dois fluxos principais: o do adotante e o do doador, iniciando a partir do acesso do usuário à plataforma, onde ele escolhe como deseja entrar (como adotante ou doador) e realiza o login. No fluxo do adotante, o usuário começa visualizando a página inicial com todos os pets disponíveis, podendo acessar os detalhes de cada animal e, caso tenha interesse, utilizar o botão para indicar interesse na adoção. Após isso, ele pode acompanhar o status das suas solicitações, gerenciar seu próprio perfil e interagir com os doadores por meio da tela de mensagens. Já no fluxo do doador, o usuário tem acesso à listagem dos pets que cadastrou, com opções para gerenciar esses animais (cadastrar, editar ou excluir), além de visualizar os pedidos de adoção recebidos. Nessa etapa, o doador pode analisar o perfil dos interessados, aceitar ou recusar solicitações e iniciar conversas para dar continuidade ao processo de adoção. Por fim, ambos os tipos de usuários possuem acesso à tela de perfil, onde podem gerenciar suas informações e acompanhar suas interações dentro da plataforma.
+
 
 
 ## Wireframes
