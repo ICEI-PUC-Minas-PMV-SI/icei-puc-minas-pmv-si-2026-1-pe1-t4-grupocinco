@@ -4,7 +4,7 @@
 
 Nos últimos anos, o abandono de animais tem se tornado um problema social significativo no Brasil, impactando diretamente o bem-estar animal e a saúde pública. De acordo com organizações de proteção animal, milhões de cães e gatos vivem em situação de abandono, dependendo de abrigos ou da ajuda da população, [01],[03],[10].
 
-Paralelamente, o uso da internet tem crescido como meio de conexão entre pessoas e serviços, criando oportunidades para soluções digitais que facilitem processos do dia a dia. Nesse contexto, plataformas online podem atuar como intermediadoras entre pessoas interessadas em adotar animais e instituições responsáveis pelo resgate.
+Paralelamente, o uso da internet tem crescido como meio de conexão entre pessoas e serviços, criando oportunidades para soluções digitais que facilitem processos do dia a dia. Nesse contexto, plataformas online podem atuar como intermediadoras entre pessoas interessadas em adotar animais e instituições responsáveis pelo resgate,[09].
 
 Entretanto, muitas das soluções atuais apresentam limitações, como falta de organização, baixa usabilidade ou pouca visibilidade dos animais disponíveis, o que dificulta o processo de adoção[04],[08].
 
@@ -37,7 +37,7 @@ Desenvolver uma aplicação web que auxilie no processo de adoção de animais, 
 
 A escolha deste projeto se justifica pela relevância social do problema do abandono de animais, que afeta milhões de vidas todos os anos. A ausência de plataformas eficientes dificulta o processo de adoção e reduz as chances de que esses animais encontrem um novo lar.
 
-Com o avanço da tecnologia e o aumento do acesso à internet, soluções digitais se tornam ferramentas importantes para resolver problemas sociais. Dessa forma, este projeto busca contribuir para a melhoria do processo de adoção, promovendo impacto positivo na sociedade.
+Com o avanço da tecnologia e o aumento do acesso à internet, soluções digitais se tornam ferramentas importantes para resolver problemas sociais. Dessa forma, este projeto busca contribuir para a melhoria do processo de adoção, promovendo impacto positivo na sociedade,[05],[06].
 
 ---
 
