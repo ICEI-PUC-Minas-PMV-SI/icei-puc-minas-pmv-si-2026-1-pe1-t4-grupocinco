@@ -6,7 +6,7 @@ Nos últimos anos, o abandono de animais tem se tornado um problema social signi
 
 Paralelamente, o uso da internet tem crescido como meio de conexão entre pessoas e serviços, criando oportunidades para soluções digitais que facilitem processos do dia a dia. Nesse contexto, plataformas online podem atuar como intermediadoras entre pessoas interessadas em adotar animais e instituições responsáveis pelo resgate.
 
-Entretanto, muitas das soluções atuais apresentam limitações, como falta de organização, baixa usabilidade ou pouca visibilidade dos animais disponíveis, o que dificulta o processo de adoção.
+Entretanto, muitas das soluções atuais apresentam limitações, como falta de organização, baixa usabilidade ou pouca visibilidade dos animais disponíveis, o que dificulta o processo de adoção[4],[8].
 
 ---
 
