@@ -123,8 +123,9 @@ Identifica visualmente os campos de endereço e geolocalização.
 Ícone Tempo/Idade: Disponível em: https://www.flaticon.com/br/icon-font-gratis/calendario_3917262. 
 Indica a idade do animal ou o tempo transcorrido desde a publicação de um conteúdo.
 
-Ícone Trabalho: Disponível em: https://www.flaticon.com/br/icon-font-gratis/pasta_3916698. 
+Ícone Trabalho: Disponível em: https://www.flaticon.com/br/icon-font-gratis/pasta_3916698.
 Identifica a ocupação profissional informada no perfil do usuário.
+
 ---
 
 ## Estilos CSS
