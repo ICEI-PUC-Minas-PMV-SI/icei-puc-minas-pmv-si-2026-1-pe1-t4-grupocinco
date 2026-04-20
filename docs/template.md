@@ -74,16 +74,41 @@ A tipografia é utilizada para criar hierarquia visual, destacar informações i
 
 ## Iconografia
 
-Os ícones são utilizados para melhorar a navegação e tornar a interface mais intuitiva.
+1. Navegação Principal (Rodapé)
+Ícone Tela de Início: Disponível em: https://www.flaticon.com/br/icon-font-gratis/casa_3917014. Representa o acesso à página inicial (Home) na barra de navegação superior.
 
-- 🐶 / 🐱 → identificação do tipo de animal
-- ❤️ → favoritar pet
-- 💬 → mensagens
-- 👤 → perfil
-- 📍 → localização
-- 🔎 → filtros
+Ícone Favoritos: Disponível em: https://www.flaticon.com/br/icon-font-gratis/coracao_3916585. Utilizado na barra de navegação para acessar itens salvos e no perfil dos animais para a função "favoritar".
 
-Eles ajudam o usuário a entender rapidamente as funções do sistema.
+Ícone Pets: Disponível em: https://www.flaticon.com/br/icon-font-gratis/comercial_3914353. Empregado na barra de navegação para simbolizar a seção de animais disponíveis.
+
+Ícone Mensagem: Disponível em: https://www.flaticon.com/br/icon-font-gratis/baliza_9291594. Representa a caixa de entrada no rodapé e o redirecionamento para o chat nos perfis de adotantes e animais.
+
+Ícone Perfil: Disponível em: https://www.flaticon.com/br/icon-font-gratis/do-utilizador_3917688. Indica o acesso à área de informações pessoais do usuário na barra de navegação.
+
+2. Redes Sociais e Compartilhamento
+Ícone Facebook: Disponível em: https://www.flaticon.com/br/icon-font-gratis/facebook_6422199. Redireciona o usuário para a página oficial da plataforma no Facebook.
+
+Ícone Instagram: Disponível em: https://www.flaticon.com/br/icon-font-gratis/instagram_6422200. Redireciona o usuário para o perfil oficial da plataforma no Instagram.
+
+Ícone Twitter: Disponível em: https://www.flaticon.com/br/icon-font-gratis/twitter_6422210. Redireciona o usuário para o perfil oficial da plataforma no Twitter.
+
+Ícone Compartilhar: Disponível em: https://www.flaticon.com/br/icon-font-gratis/compartilhar_3917574. Permite o compartilhamento de perfis e conteúdos com outros usuários.
+
+3. Funcionalidades e Edição
+Ícone Editar: Disponível em: https://www.flaticon.com/br/icon-font-gratis/lapis_3917376. Utilizado para a edição de informações existentes ou adição de novos conteúdos nos perfis.
+
+Ícone Gravar Áudio: Disponível em: https://www.flaticon.com/br/icon-font-gratis/microfone-circular_10742083. Localizado na interface de mensagens para a gravação de conteúdos em áudio.
+
+Ícone Configurações: Disponível em: https://www.flaticon.com/br/icon-font-gratis/definicoes_3917035. Redireciona o usuário para a interface de ajustes de segurança e alteração de senha.
+
+Ícone Notificações: Disponível em: https://www.flaticon.com/br/icon-font-gratis/sino_3917270. Destinado ao gerenciamento e configuração de alertas do sistema.
+
+4. Informações de Perfil e Metadados
+Ícone Localização: Disponível em: https://www.flaticon.com/br/icon-font-gratis/marcador_3916882. Identifica visualmente os campos de endereço e geolocalização.
+
+Ícone Tempo/Idade: Disponível em: https://www.flaticon.com/br/icon-font-gratis/calendario_3917262. Indica a idade do animal ou o tempo transcorrido desde a publicação de um conteúdo.
+
+Ícone Trabalho: Disponível em: https://www.flaticon.com/br/icon-font-gratis/pasta_3916698. Identifica a ocupação profissional informada no perfil do usuário..
 
 ---
 
