@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca/exibição</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">🐾 LarCerto</div>
+
+      <nav class="nav">
+        <a href="#">Início</a>
+        <a href="#" class="active">Pets</a>
+        <a href="#">Favoritos</a>
+        <a href="#">Mensagens</a>
+        <a href="#">Perfil</a>
+      </nav>
+
+      <button class="login-btn">Entrar / Cadastrar</button>
+    </header>
+
+    <section class="search-area">
+      <input
+        type="text"
+        placeholder="Buscar por nome, raça ou localização..."
+      />
+      <button>🔍</button>
+    </section>
+
+    <main class="container">
+      <aside class="sidebar">
+        <div class="filter-card">
+          <div class="filter-header">
+            <h3>Filtros</h3>
+            <span>Limpar filtros</span>
+          </div>
+
+          <label>Idade</label>
+          <select>
+            <option>Todas</option>
+            <option>Filhote</option>
+            <option>Adulto</option>
+          </select>
+
+          <label>Porte</label>
+          <select>
+            <option>Todos</option>
+            <option>Pequeno</option>
+            <option>Médio</option>
+            <option>Grande</option>
+          </select>
+
+          <label>Gênero</label>
+          <select>
+            <option>Todos</option>
+            <option>Macho</option>
+            <option>Fêmea</option>
+          </select>
+
+          <label>Temperamento</label>
+          <select>
+            <option>Todos</option>
+            <option>Calmo</option>
+            <option>Brincalhão</option>
+            <option>Protetor</option>
+          </select>
+
+          <label>Localização</label>
+          <input type="text" placeholder="Cidade ou estado" />
+        </div>
+
+        <div class="recommended">
+          <h3>Cães recomendados</h3>
+
+          <div class="mini-pet">
+            <img
+              src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=300&q=80"
+              alt="Cachorro"
+            />
+            <div>
+              <strong>Mel</strong>
+              <p>2 anos • Fêmea</p>
+              <p>São Paulo, SP</p>
+            </div>
+          </div>
+
+          <div class="mini-pet">
+            <img
+              src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=300&q=80"
+              alt="Cachorro"
+            />
+            <div>
+              <strong>Thor</strong>
+              <p>3 anos • Macho</p>
+              <p>Campinas, SP</p>
+            </div>
+          </div>
+
+          <button class="see-more">Ver mais</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="title-area">
+          <div>
+            <h1>Encontre seu novo melhor amigo</h1>
+            <p>Adote, transforme uma vida e ganhe um amigo para sempre.</p>
+          </div>
+          <span>368 cães disponíveis</span>
+        </div>
+
+        <div class="pet-grid">
+          <div class="pet-card">
+            <img
+              src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=500&q=80"
+              alt="Mel"
+            />
+            <button class="favorite">♡</button>
+            <div class="pet-info">
+              <h3>Mel</h3>
+              <p>2 anos • Fêmea</p>
+              <p>Médio • Carinhosa</p>
+              <p>📍 São Paulo, SP</p>
+              <button>Ver perfil</button>
+            </div>
+          </div>
+
+          <div class="pet-card">
+            <img
+              src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=500&q=80"
+              alt="Thor"
+            />
+            <button class="favorite">♡</button>
+            <div class="pet-info">
+              <h3>Thor</h3>
+              <p>3 anos • Macho</p>
+              <p>Grande • Protetor</p>
+              <p>📍 Campinas, SP</p>
+              <button>Ver perfil</button>
+            </div>
+          </div>
+
+          <div class="pet-card">
+            <img
+              src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80"
+              alt="Luna"
+            />
+            <button class="favorite">♡</button>
+            <div class="pet-info">
+              <h3>Luna</h3>
+              <p>1 ano • Fêmea</p>
+              <p>Pequeno • Brincalhona</p>
+              <p>📍 Santos, SP</p>
+              <button>Ver perfil</button>
+            </div>
+          </div>
+
+          <div class="pet-card">
+            <img
+              src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=500&q=80"
+              alt="Bob"
+            />
+            <button class="favorite">♡</button>
+            <div class="pet-info">
+              <h3>Bob</h3>
+              <p>4 anos • Macho</p>
+              <p>Médio • Tranquilo</p>
+              <p>📍 São José, SC</p>
+              <button>Ver perfil</button>
+            </div>
+          </div>
+
+          <div class="pet-card">
+            <img
+              src="https://images.unsplash.com/photo-1598134493179-51332e56807f?auto=format&fit=crop&w=500&q=80"
+              alt="Amora"
+            />
+            <button class="favorite">♡</button>
+            <div class="pet-info">
+              <h3>Amora</h3>
+              <p>2 anos • Fêmea</p>
+              <p>Médio • Dócil</p>
+              <p>📍 Curitiba, PR</p>
+              <button>Ver perfil</button>
+            </div>
+          </div>
+
+          <div class="pet-card">
+            <img
+              src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=500&q=80"
+              alt="Apolo"
+            />
+            <button class="favorite">♡</button>
+            <div class="pet-info">
+              <h3>Apolo</h3>
+              <p>3 anos • Macho</p>
+              <p>Grande • Ativo</p>
+              <p>📍 Porto Alegre, RS</p>
+              <button>Ver perfil</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <button>‹</button>
+          <button class="active-page">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>...</button>
+          <button>16</button>
+          <button>›</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h3>AdotaPet</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+      </div>
+
+      <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+
+      <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div>
+        <h3>Fique por dentro</h3>
+        <p>Receba novidades sobre adoção.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Seu e-mail" />
+          <button>Inscrever</button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
