@@ -1,0 +1,133 @@
+:root {
+    --primary-color: #F97316;
+    --secondary-color: #2c3e50;
+    --bg-color: #F5F5F4;
+    --text-color: #111827;
+    --white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 100px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.main-header {
+    background-color: var(--primary-color);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-nav {
+    color: var(--white);
+    font-weight: 800;
+    font-size: 32px; 
+    letter-spacing: -1.5px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px; 
+    font-weight: 600;
+}
+
+
+.profile__card {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 95%;
+    max-width: 550px; 
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 35px;
+}
+
+.profile__title {
+    font-size: 22px; 
+    padding: 20px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.profile__image {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover;
+    display: block;
+}
+
+.profile__info {
+    padding: 30px; 
+}
+
+.profile__name {
+    font-size: 42px; 
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.profile__badge {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 6px 18px; 
+    border-radius: 30px;
+    font-size: 16px; 
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.profile__description {
+    font-size: 20px; 
+    color: #374151;
+    margin-bottom: 30px;
+}
+
+/* --- Botão --- */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 18px 40px; 
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
+}
