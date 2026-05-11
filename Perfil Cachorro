@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <title>LarCerto - Perfil da Luana</title>
+</head>
+<body>
+    <header class="main-header">
+        <div class="main-header__logo">LarCerto</div>
+        <nav class="main-nav">
+            <a class="main-nav__link" href="https://www.pucminas.br">Sobre o projeto</a>
+            <a class="main-nav__link main-nav__link--contact" href="https://www.whatsapp.com">Contato</a>
+        </nav>
+    </header>
+    <main class="profile">
+        <article class="profile__card">
+            <h1 class="profile__title">Perfil do Pet</h1>
+            
+            <img class="profile__image" 
+                 src="https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2025/02/cachorra-ou-cadela.jpg?quality=70&strip=info&w=1280&h=720&crop=1" 
+                 alt="Luana uma cachorra dócil e dengosa">
+
+            <div class="profile__info">
+                <h2 class="profile__name">Luana</h2>
+                <p class="profile__description">
+                    Luana é uma cachorra dócil e dengosa <div>
+             Será sua melhor companhia nos bons e maus momentos! </div>
+            <div> 4 anos,vermifugada e castrada</div>    
+            </p>
+            </div>
+        </article>
+    </main>
+
+</body>
+</html>
