@@ -3,45 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cadastro - LarCerto</title>
+    <link rel="stylesheet" href="style02.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <header>
-        <div class="logo-nav">🐾 LarCerto</div> <nav>
-            <ul>
-                <li><a href="#" class="active">🏠 Início</a></li>
-                <li><a href="#">👥 Adotantes</a></li>
-                <li><a href="#">❤️ Favoritos</a></li>
-                <li><a href="#">💬 Mensagens</a></li>
-                <li><a href="#">👤 Perfil</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <div class="logo">🐾 LarCerto</div> 
+
+      <nav class="nav">
+        <a href="#">Início</a>
+        <a href="#">Pets</a>
+        <a href="#">Favoritos</a>
+        <a href="#">Mensagens</a>
+        <a href="#">Perfil</a>
+      </nav>
+
+     <button class="login-btn" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
     </header>
-   <div class="logo" style="font-size: 64px; font-weight: bold;">
-    🐾 LarCerto </div>
+
+<div class="container text-center mt-5">
+    <div class="logo" style="
+        font-size: 40px; 
+        font-weight: 800; 
+        display: inline-block; 
+        color: #111827; 
+        background-color: #ffffff; 
+        border: 2px solid #f97316; 
+        border-radius: 15px; 
+        padding: 10px 30px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    ">
+        🐾 LarCerto
+    </div>
+</div>
+
     <!-- Formulário de cadastro e direcionamento para tela de Login-->
-    <form action="login.html" method="get">
-        <label for="login">Login:</label><br>
-        <input type="text" id="login" name="login" required><br><br>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 card p-4 shadow-sm"> <form action="login.html" method="get">
+                <div class="mb-3 text-start">
+                    <label for="login" class="form-label">Login:</label>
+                    <input type="text" id="login" name="login" class="form-control" required>
+                </div>
 
-        <label for="password">Senha:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+                <div class="mb-3 text-start">
+                    <label for="password" class="form-label">Senha:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
 
-        <label for="address">Endereço:</label><br>
-        <input type="address" id="address" name="address" required><br><br>
+                <div class="mb-3 text-start">
+                    <label for="name" class="form-label">Nome:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
 
-        <label for="phone-number">Celular:</label><br>
-        <input type="phone-number" id="phone-number" name="phone-number" required><br><br>
+                <div class="row">
+                    <div class="col-md-6 mb-3 text-start">
+                        <label for="idnumber" class="form-label">CPF:</label>
+                        <input type="text" id="idnumber" name="idnumber" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3 text-start">
+                        <label for="email" class="form-label">E-mail:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                </div>
 
-       <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+                <button type="submit" class="btn btn-warning w-100 mb-3 text-white" style="background-color: #F97316;">Registrar</button>
+            </form>
+            
+            <a href="login.html" class="btn btn-link text-decoration-none" style="color: #F97316;">Já tenho login. Fazer Login</a>
+        </div>
+    </div>
+</div>
 
-        <button type="submit">Registrar</button><br><br>
-    </form>
-    <!-- Botão que direciona para tela de Login-->
-     <form action="login.html" method="get">   
-         <button type="submit">Já tenho login. Fazer Login</button>
-     </form>
+    <footer class="footer">
+      <div>
+        <h3>LarCerto</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+      </div>
+
+      <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+
+      <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div>
+        <h3>Fique por dentro</h3>
+        <p>Receba novidades sobre adoção.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Seu e-mail" />
+          <button>Inscrever</button>
+        </div>
+      </div>
+    </footer>
+
+
 </body>
 </html>
