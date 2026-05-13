@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro do Pet - LarCerto</title>
+    <link rel="stylesheet" href="style02.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">🐾 LarCerto</div> 
+
+      <nav class="nav">
+        <a href="#">Início</a>
+        <a href="#">Pets</a>
+        <a href="#">Favoritos</a>
+        <a href="#">Mensagens</a>
+        <a href="#">Perfil</a>
+      </nav>
+
+      <button class="login-btn" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
+    </header>
+    
+<div class="container text-center mt-5">
+    <div class="logo" style="
+        font-size: 40px; 
+        font-weight: 800; 
+        display: inline-block; 
+        color: #111827; 
+        background-color: #ffffff; 
+        border: 2px solid #f97316; 
+        border-radius: 15px; 
+        padding: 10px 30px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    ">
+        🐾 LarCerto
+    </div>
+</div>
+
+
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7 card p-4 shadow-sm">
+                
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold" style="color: #2c3e50;">Cadastro de Novo Pet</h2>
+                    <p class="text-muted">Preencha as informações abaixo para encontrar um lar para o seu amigo.</p>
+                    <hr>
+                </div>
+
+                <form action="sucesso.html" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-3 text-start">
+                            <label for="petname" class="form-label fw-bold">Nome do Pet:</label>
+                            <input type="text" id="petname" name="petname" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3 text-start">
+                            <label for="raca" class="form-label fw-bold">Raça:</label>
+                            <input type="text" id="raca" name="raca" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3 text-start">
+                            <label for="age" class="form-label fw-bold">Idade:</label>
+                            <input type="text" id="age" name="age" class="form-control" required>
+                        </div>
+                        <div class="col-md-4 mb-3 text-start">
+                            <label for="size" class="form-label fw-bold">Tamanho:</label>
+                            <input type="text" id="size" name="size" class="form-control" required>
+                        </div>
+                        <div class="col-md-4 mb-3 text-start">
+                            <label for="sex" class="form-label fw-bold">Sexo:</label>
+                            <input type="text" id="sex" name="sex" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label for="location" class="form-label fw-bold">Localização:</label>
+                        <div class="input-group">
+                            <input type="text" id="location" name="location" class="form-control" placeholder="Endereço ou Coordenadas" required>
+                            <button class="btn btn-outline-secondary" type="button" onclick="getLocation()">
+                                📍 Me localizar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label for="personality" class="form-label fw-bold">Descreva a personalidade do seu Pet:</label>
+                        <textarea id="personality" name="personality" class="form-control" rows="3" placeholder="Ex: É muito dócil, brincalhão e convive bem com outros cães..." required></textarea>
+                    </div>
+
+                    <div class="mb-4 text-start">
+                        <p class="form-label fw-bold mb-2">Vacinas em dia:</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="v8_v10" id="vac_v8">
+                                    <label class="form-check-label" for="vac_v8">V8 / V10 (Polivalente)</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="raiva" id="vac_raiva">
+                                    <label class="form-check-label" for="vac_raiva">Antirrábica</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="gripe" id="vac_gripe">
+                                    <label class="form-check-label" for="vac_gripe">Gripe Canina</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="giardia" id="vac_giardia">
+                                    <label class="form-check-label" for="vac_giardia">Giárdia</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-check mt-1">
+                            <input class="form-check-input" type="checkbox" value="leishmaniose" id="vac_leish">
+                            <label class="form-check-label" for="vac_leish">Leishmaniose</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 text-start">
+                        <label for="petPhotos" class="form-label fw-bold">Fotos do Pet (máximo 3):</label>
+                        <input type="file" id="petPhotos" name="petPhotos[]" class="form-control" accept="image/*" multiple onchange="previewImages()">
+                        <div id="preview-container" class="d-flex flex-wrap gap-2 mt-3"></div>
+                        <small class="text-muted d-block mt-2">Dica: Selecione as 3 fotos de uma vez na galeria.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 text-white fw-bold py-2" style="background-color: #F97316; font-size: 1.1rem;">
+                        Finalizar Registro do Pet
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+        <footer class="footer">
+      <div>
+        <h3>LarCerto</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+      </div>
+
+      <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+
+      <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div>
+        <h3>Fique por dentro</h3>
+        <p>Receba novidades sobre adoção.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Seu e-mail" />
+          <button>Inscrever</button>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
