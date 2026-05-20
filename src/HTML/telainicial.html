@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LarCerto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F4;
+  color: #111827;
+}
+
+  .logo {
+    display: inline-block;       /* Faz a borda envolver apenas o texto */
+    padding: 15px 35px;          /* Espaço entre o texto e a borda */
+    border: 3px solid #2c3e50;   /* Espessura e cor da borda */
+    border-radius: 20px;         /* Curvatura dos cantos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 40px;
+  }
+
+.logo-nav {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+body {
+    padding-top: 80px;
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+}
+        :root {
+            --primary-orange: #f37021;
+            --dark-blue: #1a365d;   
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+        
+        header {
+            background: var(--primary-orange);
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .btn-login {
+            background: white;
+            color: var(--primary-orange);
+            padding: 6px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .hero h1 {
+            color: var(--dark-blue);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .btn-main {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+        }
+        .pet-grid {
+            display: flex;
+            justify-content: center;
+            background: white;
+            padding: 50px;
+        }
+
+        .pet-card {
+            flex: 1;
+            height: 250px;
+            background: #e9ecef;
+            border: 4px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-size: 40px;
+        }
+
+        .welcome-section {
+            display: flex;
+            padding: 60px 10%;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .welcome-text {
+            flex: 1.5;
+        }
+
+        .welcome-text h2 {
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .welcome-text p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .side-images {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .side-box {
+            height: 140px;
+            background: #dee2e6;
+            border-radius: 8px;
+            padding: 50px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: white;
+            padding: 50px 10% 20px;
+            border-top: 4px solid var(--primary-orange);
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .footer-col a {
+            color: #777;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icons i {
+            background: var(--primary-orange);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 14px;
+        }
+
+        .btn-register {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-paw"></i> LarCerto
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#"><i class="fas fa-dog"></i> Adotantes</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+                <li><a href="#"><i class="fas fa-comment"></i> Mensagens</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Perfil</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-login">Login / Cadastro</a>
+    </header>
+
+    <section class="hero">
+        <h1>Encontre seu novo melhor amigo</h1>
+        <a href="Login.html">
+        <button class="btn-main">Quero Adotar</button>
+        </a>
+    </section>
+
+    <section class="pet-grid">
+        <img src="Dog2.jpg">
+        <img src="Dog3.jpg">
+    </section>
+
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h2>Bem-vindo ao  nosso site!</h2>
+            <p>Conectamos animaia resgatados a lares cheios de amor.
+                 Encontre seu novo melhor amigo,
+            adote awu pet e transforme uma vida</p>
+             </div>
+        <div class="side-images">
+            <img src="Dog4.jpg" alt=""></div>
+         <img src="Cat1.jpg" alt=""></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <h4>Sobre</h4>
+                <a href="#">Quem Somos</a>
+                <a href="#">Nossa Missão</a>
+                <a href="#">Contato</a>
+            </div>
+            <div class="footer-col">
+                <h4>Ações</h4>
+                <a href="#">Quero Adotar</a>
+                <a href="#">Quero Doar</a>
+                <a href="#">Denunciar</a>
+            </div>
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Termos de Uso</a>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <button class="btn-register">Registrar Agora</button>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 LarCerto - Rede Social de Adoção de Cães. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
