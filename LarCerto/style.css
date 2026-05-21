@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F4;
+  color: #111827;
+  margin: 0;
+    display: flex;
+    flex-direction:column; /* Alinha os itens um abaixo do outro */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;    /* Centraliza horizontalmente */
+    min-height: 100vh;      /* Garante que o corpo ocupe toda a altura da tela */
+    text-align: center;     /* Garante que o texto dentro dos elementos também fique centralizado*/
+    font-family: Arial, sans-serif; /* Apenas um toque estético */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #F97316;
+  color: white;
+  width: 100%;
+  position: fixed; /* Fixa no topo da página */
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #F97316;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+button {
+  background-color: #F97316;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+  /* Configuração da classe logo */
+  .logo {
+    /* 1. Enquadramento e Display */
+    display: inline-block;       /* Faz a borda envolver apenas o texto */
+    padding: 15px 35px;          /* Espaço entre o texto e a borda */
+    border: 3px solid #2c3e50;   /* Espessura e cor da borda */
+    border-radius: 20px;         /* Curvatura dos cantos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 40px;
+  }
+
+
+/* Estilo da logo que vai dentro do header (sem borda e menor) */
+.logo-nav {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Alinhamento do Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+
+body {
+    padding-top: 80px; 
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+}
