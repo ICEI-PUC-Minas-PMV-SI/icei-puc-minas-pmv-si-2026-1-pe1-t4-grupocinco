@@ -13,10 +13,10 @@ function direcionarUsuario() {
 
     // Se for válido, segue para a lógica de redirecionamento
     if (opcaoAdotar.checked) {
-        window.location.href = "adotanteview.html"; 
+        window.location.href = "TelaExibição.html"; 
     } 
     else if (opcaoDoar.checked) {
-        window.location.href = "doadorview.html";
+        window.location.href = "PessoasInteressadas.html";
     } 
     else {
         // Caso os rádios não tenham 'required' ou falhem por algum motivo
