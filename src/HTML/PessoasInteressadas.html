@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Gerenciar Adotantes -Larcerto</title>
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="PessoasInteressadas.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+
+    <header class="header">
+      <div class="logo">🐾 AdotaPet</div>
+
+      <nav class="nav">
+        <a href="#">Início</a>
+        <a href="#" class="active">Interessados</a>
+        <a href="#">Pets</a>
+        <a href="#">Mensagens</a>
+        <a href="#">Perfil</a>
+      </nav>
+
+      <div class="header-right">
+        <input type="text" placeholder="Buscar adotantes..." />
+
+        <div class="user">
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+            alt=""
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+
+    <main class="container">
+      <!-- SIDEBAR -->
+
+      <aside class="sidebar">
+        <div class="filter-card">
+          <div class="filter-top">
+            <h3>Filtros</h3>
+
+            <button id="clearFilters" class="clear-btn">Limpar</button>
+          </div>
+
+          <label>Faixa Etária</label>
+
+          <select>
+            <option>Todas</option>
+            <option>18 - 25</option>
+            <option>26 - 35</option>
+            <option>36 - 50</option>
+          </select>
+
+          <label>Experiência com Pets</label>
+
+          <select>
+            <option>Todos</option>
+            <option>Iniciante</option>
+            <option>Intermediário</option>
+            <option>Experiente</option>
+          </select>
+
+          <label>Tipo de Moradia</label>
+
+          <select>
+            <option>Todos</option>
+            <option>Casa</option>
+            <option>Apartamento</option>
+          </select>
+
+          <label>Localização</label>
+
+          <input type="text" placeholder="Cidade ou estado" />
+
+          <button class="filter-btn">Aplicar filtros</button>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+
+      <section class="content">
+        <div class="content-top">
+          <div>
+            <h1>Visualize e gerencie perfis de adotantes</h1>
+          </div>
+
+          <span class="results"> 42 adotantes encontrados </span>
+        </div>
+
+        <!-- GRID -->
+
+        <div class="adopters-grid">
+          <!-- CARD -->
+
+          <div class="adopter-card">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80"
+              class="profile-img"
+              alt=""
+            />
+
+            <div class="card-content">
+              <h3>Ana Beatriz</h3>
+
+              <p class="city">📍 Curitiba, PR</p>
+
+              <button class="outline-btn">Ver Perfil</button>
+            </div>
+          </div>
+
+          <!-- CARD -->
+
+          <div class="adopter-card">
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"
+              class="profile-img"
+              alt=""
+            />
+
+            <div class="card-content">
+              <h3>Lucas Martins</h3>
+
+              <p class="city">📍 São Paulo, SP</p>
+
+              <button class="outline-btn">Ver Perfil</button>
+            </div>
+          </div>
+
+          <!-- CARD -->
+
+          <div class="adopter-card">
+            <img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=700&q=80"
+              class="profile-img"
+              alt=""
+            />
+
+            <div class="card-content">
+              <h3>Juliana Costa</h3>
+
+              <p class="city">📍 Belo Horizonte, MG</p>
+
+              <button class="outline-btn">Ver Perfil</button>
+            </div>
+          </div>
+
+          <!-- CARD -->
+
+          <div class="adopter-card">
+            <img
+              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80"
+              class="profile-img"
+              alt=""
+            />
+
+            <div class="card-content">
+              <h3>Pedro Henrique</h3>
+
+              <p class="city">📍 Porto Alegre, RS</p>
+
+              <button class="outline-btn">Ver Perfil</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JS -->
+
+    <script src="PessoasInteressadas.js"></script>
+  </body>
+</html>
