@@ -2,22 +2,24 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>LarCerto - Mensagens</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>LarCerto - Favoritos</title>
+    <link rel="stylesheet" href="../style.css"> 
 </head>
-<body class="pagina-chat">
-    <header>
-        <div class="logo-nav">🐾 LarCerto</div>
-        <nav>
-            <ul>
-                <li><a href="../html/index.html">Início</a></li>
+<body>
+
+   <header>
+    <div class="logo-nav">🐾 LarCerto</div>
+    <nav>
+        <ul>
+                <li><a href="../html/telainicial.html">Início</a></li>
                 <li><a href="../html/perfilAdotante.html">Adotantes</a></li>
-                <li><a href="../html/favoritos.html">Favoritos</a></li>
-                <li><a href="../html/mensagens.html" class="active">Mensagens</a></li>
+                <li><a href="../html/favoritos.html" class="active">Favoritos</a></li>
+                <li><a href="../html/mensagens.html">Mensagens</a></li>
                 <li><a href="../html/PerfilDoador.html">Perfil</a></li>
-            </ul>
-        </nav>
-    </header>
+
+        </ul>
+    </nav>
+</header>
 
     <main class="main-container">
         <h1 class="page-title">Mensagens</h1>
@@ -41,7 +43,7 @@
     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop" class="avatar-img" alt="Marcos Almeida">
     <div class="contact-info">
         <div class="name-time"><strong>Marcos Souza</strong> </div>
-        <p class="sub-text">Sobre: Cão Médio (Barreiro)</p>
+        <p class="sub-text">Sobre: Cão Médio</p>
     </div>
 </div>
 
@@ -49,7 +51,7 @@
     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop" class="avatar-img" alt="Ludmilla Lara">
     <div class="contact-info">
         <div class="name-time"><strong>Ludmilla Lara</strong> </div>
-        <p class="sub-text">Sobre: Cão Pequeno (Buritis)</p>
+        <p class="sub-text">Sobre: Cão Pequeno</p>
     </div>
 </div>
 
@@ -111,28 +113,30 @@
     </div>
  </aside>
 
- <section class="chat-window">
-<div class="chat-header">
-<img src="Ana.jpg" class="avatar-img" alt="Ana Almeida">
-<div class="header-text"><strong>Ana Almeida</strong><p>Sobre: Rebeca</p></div>
- </div>
-<div class="chat-messages">
-<div class="bubble sent">
-<span class="message-text">Olá, estou interessado nesse poodle fofinho.Ela é calma pois tenho um gatinho.</span>
-                
-<span class="message-time">10:30</span>
-</div>
-<div class="bubble received">Oii,tudo bem?É muito calma sim!! Aceita bem outros animais.</span>
+<section class="chat-window">
+    <div class="chat-header">
+        <img src="Ana.jpg" class="avatar-img" alt="Ana Almeida">
+        <div class="header-text"><strong>Ana Almeida</strong><p>Sobre: Rebeca</p></div>
+    </div>
 
-<span class="message-time">11:45</span>
-</div>
-<div class="chat-input-container">
-<input type="text" placeholder="Digite sua mensagem...">
-<button class="audio-btn">
-<img src="animation.png" alt="Áudio">
-                </button>
-              </div>
-            </section>
+    <div class="chat-messages">
+        <div class="bubble sent">
+            <span class="message-text">Olá, estou interessado nesse poodle fofinho.Ela é calma? Pois tenho um gatinho.</span>
+            <span class="message-time">10:30</span>
+        </div>
+        <div class="bubble received">
+            <span class="message-text">Oii,tudo bem?É muito calma sim!! Aceita bem outros animais.</span>
+            <span class="message-time">11:45</span>
+        </div>
+    </div>
+
+    <div class="chat-input-container">
+        <input type="text" placeholder="Digite sua mensagem...">
+        <button class="send-btn">
+    <img src="mandar.png" alt="Enviar Mensagem">
+        </button>
+    </div>
+</section>
         </div>
     </main>
 
@@ -169,6 +173,8 @@
         </div>
         
       </div>
-    </footer>
-  </body>
-</html>   
+   </footer>
+    
+   <script src="../script.js"></script>
+</body>
+</html>
