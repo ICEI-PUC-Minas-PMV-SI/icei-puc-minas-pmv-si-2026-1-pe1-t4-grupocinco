@@ -5,10 +5,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Gerenciar Adotantes -Larcerto</title>
+    <title>Gerenciar Adotantes - AdotaPet</title>
 
     <!-- GOOGLE FONTS -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
     <link
@@ -17,7 +16,6 @@
     />
 
     <!-- CSS -->
-
     <link rel="stylesheet" href="/CSS/PessoasInteressadas.css" />
   </head>
 
@@ -41,7 +39,7 @@
         <div class="user">
           <img
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
-            alt=""
+            alt="Usuário"
           />
         </div>
       </div>
@@ -100,94 +98,19 @@
         <div class="content-top">
           <div>
             <h1>Visualize e gerencie perfis de adotantes</h1>
+
+            <p class="description">
+              Explore os perfis dos interessados em adoção e encontre o lar
+              ideal para cada pet.
+            </p>
           </div>
 
-          <span class="results"> 42 adotantes encontrados </span>
+          <span class="results"> 0 adotantes encontrados </span>
         </div>
 
-        <!-- GRID -->
+        <!-- GRID GERADA PELO JAVASCRIPT -->
 
-        <div class="adopters-grid">
-          <!-- CARD -->
-
-          <div class="adopter-card">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80"
-              class="profile-img"
-              alt=""
-            />
-
-            <div class="card-content">
-              <h3>Ana Beatriz</h3>
-
-              <p class="city">📍 Curitiba, PR</p>
-
-              <button class="outline-btn">
-                <a class="btn-profile" href="perfiladotante.html">Ver Perfil</a>
-              </button>
-            </div>
-          </div>
-
-          <!-- CARD -->
-
-          <div class="adopter-card">
-            <img
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"
-              class="profile-img"
-              alt=""
-            />
-
-            <div class="card-content">
-              <h3>Lucas Martins</h3>
-
-              <p class="city">📍 São Paulo, SP</p>
-
-              <button class="outline-btn">
-                <a class="btn-profile" href="perfiladotante.html">Ver Perfil</a>
-              </button>
-            </div>
-          </div>
-
-          <!-- CARD -->
-
-          <div class="adopter-card">
-            <img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=700&q=80"
-              class="profile-img"
-              alt=""
-            />
-
-            <div class="card-content">
-              <h3>Juliana Costa</h3>
-
-              <p class="city">📍 Belo Horizonte, MG</p>
-
-              <button class="outline-btn">
-                <a class="btn-profile" href="perfiladotante.html">Ver Perfil</a>
-              </button>
-            </div>
-          </div>
-
-          <!-- CARD -->
-
-          <div class="adopter-card">
-            <img
-              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=80"
-              class="profile-img"
-              alt=""
-            />
-
-            <div class="card-content">
-              <h3>Pedro Henrique</h3>
-
-              <p class="city">📍 Porto Alegre, RS</p>
-
-              <button class="outline-btn">
-                <a class="btn-profile" href="perfiladotante.html">Ver Perfil</a>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="adopters-grid" id="adoptersGrid"></div>
       </section>
     </main>
 
