@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Adotante | LarCerto</title>
+
+    <link rel="stylesheet" href="../CSS/perfilAdotante.css">
+
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+
+    <div class="logo">🐾 LarCerto</div>
+
+    <nav class="nav">
+        <a href="../HTML/telainicial.html">Início</a>
+        <a href="../HTML/PessoasInteressadas.html">Adotantes</a>
+        <a href="../HTML/favoritos.html">Favoritos</a>
+        <a href="../HTML/mensagens.html">Mensagens</a>
+        <a href="../HTML/perfilAdotante.html" class="active">Perfil</a>
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <div class="caixa caixa-cima">
+
+        <button
+            type="button"
+            class="btn-editar"
+            id="btn-editar"
+            title="Editar Informações">
+
+            <i class="fa-solid fa-pen"></i>
+
+        </button>
+
+        <button
+            type="button"
+            class="btn-editar"
+            id="btn-salvar"
+            title="Salvar Alterações"
+            style="display:none; right:70px;">
+
+            <i class="fa-solid fa-floppy-disk"></i>
+
+        </button>
+
+        <div class="foto-container">
+
+            <img
+                class="foto"
+                id="fotoPerfil"
+                src=""
+                alt="Foto do Perfil">
+
+            <div
+                class="overlay-foto"
+                id="overlayFoto">
+
+                <i class="fa-solid fa-camera"></i>
+                Alterar Foto
+
+            </div>
+
+        </div>
+
+        <input
+            type="file"
+            id="inputFoto"
+            accept="image/*">
+
+        <div class="informacao">
+
+            <div
+                class="nome"
+                id="nomeUsuario">
+
+                Carregando...
+            </div>
+
+            <div class="infoTI">
+
+            <p>
+                <i class="fa-solid fa-briefcase"></i>
+                <span id="profissaoUsuario">
+                    Carregando...
+                </span>
+            </p>
+
+            <p>
+                <i class="fa-regular fa-calendar"></i>
+                <span id="idadeUsuario">
+                    Carregando...
+                </span>
+            </p>
+
+        </div>
+
+            <p class="localizacao">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span id="localizacaoUsuario">
+                    Carregando...
+                </span>
+            </p>
+
+            <h3>Sobre mim:</h3>
+
+            <p
+                class="text"
+                id="sobreUsuario">
+
+                Carregando...
+            </p>
+
+            <h3 class="doador">
+                Pet de interesse:
+                <span id="nomePet">
+                    Carregando...
+                </span>
+            </h3>
+
+            <div
+                class="doador"
+                id="acoesDoador">
+
+                <button
+                    type="button"
+                    id="btn-aprovado"
+                    class="aprov">
+
+                    Aprovado
+                </button>
+
+                <button
+                    type="button"
+                    id="btn-reprovado"
+                    class="reprov">
+
+                    Reprovado
+                </button>
+
+                <a href="../HTML/mensagens.html">
+
+                    <button
+                        type="button"
+                        class="mensag">
+
+                        Enviar mensagem
+                    </button>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="caixa">
+
+        <div class="info">
+
+            <h3 class="caixa-titulo">
+                <i class="fa-solid fa-house"></i>
+                Moradia
+            </h3>
+
+            <h4 class="caixa-rotulo">
+                Tipo de moradia:
+            </h4>
+
+            <p
+                class="resposta-rotulo"
+                id="tipoMoradia">
+
+                Carregando...
+            </p>
+
+            <h4 class="caixa-rotulo">
+                Quintal:
+            </h4>
+
+            <p
+                class="resposta-rotulo"
+                id="quintal">
+
+                Carregando...
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="caixa">
+
+        <div class="info">
+
+            <h3 class="caixa-titulo">
+                <i class="fa-solid fa-award"></i>
+                Experiência
+            </h3>
+
+            <h4 class="caixa-rotulo">
+                Experiência com pets:
+            </h4>
+
+            <div
+                class="tag"
+                id="experienciasPets">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="caixa">
+
+        <div class="info">
+
+            <h4 class="caixa-titulo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                Estilo de Vida
+            </h4>
+
+            <div
+                class="tag"
+                id="estilosVida">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="caixa">
+
+        <div class="info">
+
+            <h4 class="caixa-titulo">
+                <i class="fa-solid fa-bone"></i>
+                Procurando Por
+            </h4>
+
+            <p
+                class="text"
+                id="procurandoPor">
+
+                Carregando...
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="footer">
+
+    <div>
+        <h3>AdotaPet</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+    </div>
+
+    <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+    </div>
+
+    <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+    </div>
+
+    <div>
+        <h3>Fique por dentro</h3>
+
+        <p>Receba novidades sobre adoção.</p>
+
+        <div class="newsletter">
+
+            <input
+                type="email"
+                placeholder="Seu e-mail">
+
+            <button>
+                Inscrever
+            </button>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="../Javascript/perfilAdotante.js"></script>
+
+</body>
+</html>
