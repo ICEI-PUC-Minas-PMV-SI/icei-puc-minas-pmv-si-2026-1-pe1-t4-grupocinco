@@ -1,81 +1,73 @@
-// Dados iniciais
+let todosAdotantes = [];
 
-const adotantesPadrao = [
-  {
-    id: 1,
-    nome: "Ana Beatriz",
-    cidade: "Curitiba, PR",
-    foto: "https://img.magnific.com/fotos-gratis/close-up-de-jovem-profissional-feminina-fazendo-contato-visual-contra-fundo-colorido_662251-651.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    id: 2,
-    nome: "Lucas Martins",
-    cidade: "São Paulo, SP",
-    foto: "https://img.magnific.com/fotos-gratis/close-up-de-jovem-profissional-feminina-fazendo-contato-visual-contra-fundo-colorido_662251-651.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    id: 3,
-    nome: "Juliana Costa",
-    cidade: "Belo Horizonte, MG",
-    foto: "https://img.magnific.com/fotos-gratis/close-up-de-jovem-profissional-feminina-fazendo-contato-visual-contra-fundo-colorido_662251-651.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-  {
-    id: 4,
-    nome: "Pedro Henrique",
-    cidade: "Porto Alegre, RS",
-    foto: "https://img.magnific.com/fotos-gratis/close-up-de-jovem-profissional-feminina-fazendo-contato-visual-contra-fundo-colorido_662251-651.jpg?semt=ais_hybrid&w=740&q=80",
-  },
-];
+async function carregarAdotantes() {
+  try {
+    const response = await fetch("../Javascript/data.json");
+    const dados = await response.json();
 
-// Inicializa Local Storage
+    todosAdotantes = dados.usuarios.filter(
+      (usuario) => usuario.tipo === "adotante",
+    );
 
-if (!localStorage.getItem("adotantes")) {
-  localStorage.setItem("adotantes", JSON.stringify(adotantesPadrao));
+    renderizarAdotantes(todosAdotantes);
+  } catch (erro) {
+    console.error("Erro ao carregar adotantes:", erro);
+
+    const grid = document.getElementById("adoptersGrid");
+
+    if (grid) {
+      grid.innerHTML = "<p>Erro ao carregar os adotantes.</p>";
+    }
+  }
 }
 
-// Carrega adotantes
+function atualizarContador(total) {
+  const contador = document.querySelector(".results");
 
-function carregarAdotantes() {
-  return JSON.parse(localStorage.getItem("adotantes")) || [];
+  if (contador) {
+    contador.textContent = `${total} adotantes encontrados`;
+  }
 }
-
-// Atualiza contador
-
-function atualizarContador() {
-  const total = carregarAdotantes().length;
-
-  document.querySelector(".results").textContent =
-    `${total} adotantes encontrados`;
-}
-
-// Renderiza cards
 
 function renderizarAdotantes(lista) {
   const grid = document.getElementById("adoptersGrid");
 
+  if (!grid) return;
+
   grid.innerHTML = "";
+
+  if (lista.length === 0) {
+    grid.innerHTML = `
+      <p class="sem-resultados">
+        Nenhum adotante encontrado.
+      </p>
+    `;
+
+    atualizarContador(0);
+    return;
+  }
 
   lista.forEach((adotante) => {
     grid.innerHTML += `
       <div class="adopter-card">
 
         <img
-          src="${adotante.foto}"
+          src="${adotante.fotoPerfil}"
           class="profile-img"
-          alt="${adotante.nome}"
+          alt="${adotante.name}"
         >
 
         <div class="card-content">
 
-          <h3>${adotante.nome}</h3>
+          <h3>${adotante.name}</h3>
 
           <p class="city">
-            📍 ${adotante.cidade}
+            📍 ${adotante.cidade}, ${adotante.estado}
           </p>
 
           <button
             class="outline-btn"
-            onclick="abrirPerfil(${adotante.id})"
+            onclick="abrirPerfil('${adotante.id}')"
           >
             Ver Perfil
           </button>
@@ -86,57 +78,123 @@ function renderizarAdotantes(lista) {
     `;
   });
 
-  atualizarContador();
+  atualizarContador(lista.length);
 }
-
-// Salva ID do perfil e abre página
 
 function abrirPerfil(id) {
-  localStorage.setItem("perfilSelecionado", id);
-
-  window.location.href = "perfiladotante.html";
+  window.location.href = `perfilAdotante.html?id=${id}`;
 }
 
-// Busca pelo campo superior
+function aplicarFiltros() {
+  let filtrados = [...todosAdotantes];
 
-const campoBusca = document.querySelector(".header-right input");
+  const idade = document.getElementById("filtroIdade")?.value;
 
-campoBusca.addEventListener("input", () => {
-  const texto = campoBusca.value.toLowerCase();
+  const experiencia = document.getElementById("filtroExperiencia")?.value;
 
-  const adotantes = carregarAdotantes();
+  const moradia = document.getElementById("filtroMoradia")?.value;
 
-  const filtrados = adotantes.filter(
-    (adotante) =>
-      adotante.nome.toLowerCase().includes(texto) ||
-      adotante.cidade.toLowerCase().includes(texto),
-  );
+  const cidade =
+    document.getElementById("filtroCidade")?.value?.toLowerCase().trim() || "";
+
+  if (idade && idade !== "Todas") {
+    filtrados = filtrados.filter((adotante) => {
+      if (idade === "18 - 25") {
+        return adotante.idade >= 18 && adotante.idade <= 25;
+      }
+
+      if (idade === "26 - 35") {
+        return adotante.idade >= 26 && adotante.idade <= 35;
+      }
+
+      if (idade === "36 - 50") {
+        return adotante.idade >= 36 && adotante.idade <= 50;
+      }
+
+      return true;
+    });
+  }
+
+  if (experiencia && experiencia !== "Todos") {
+    filtrados = filtrados.filter((adotante) => {
+      const quantidade = adotante.experiencias?.length || 0;
+
+      if (experiencia === "Iniciante") {
+        return quantidade <= 1;
+      }
+
+      if (experiencia === "Intermediário") {
+        return quantidade === 2;
+      }
+
+      if (experiencia === "Experiente") {
+        return quantidade >= 3;
+      }
+
+      return true;
+    });
+  }
+
+  if (moradia && moradia !== "Todos") {
+    filtrados = filtrados.filter(
+      (adotante) => adotante.moradia?.tipo === moradia,
+    );
+  }
+
+  if (cidade) {
+    filtrados = filtrados.filter(
+      (adotante) =>
+        adotante.cidade.toLowerCase().includes(cidade) ||
+        adotante.estado.toLowerCase().includes(cidade),
+    );
+  }
 
   renderizarAdotantes(filtrados);
-});
+}
 
-// LIMPAR FILTROS
+function configurarBusca() {
+  const campoBusca = document.querySelector(".header-right input");
 
-const clearButton = document.getElementById("clearFilters");
+  if (!campoBusca) return;
 
-clearButton.addEventListener("click", () => {
-  const selects = document.querySelectorAll("select");
+  campoBusca.addEventListener("input", () => {
+    const texto = campoBusca.value.toLowerCase().trim();
 
-  const inputs = document.querySelectorAll("input");
+    const filtrados = todosAdotantes.filter(
+      (adotante) =>
+        adotante.name.toLowerCase().includes(texto) ||
+        adotante.cidade.toLowerCase().includes(texto) ||
+        adotante.estado.toLowerCase().includes(texto),
+    );
 
-  selects.forEach((select) => {
-    select.selectedIndex = 0;
+    renderizarAdotantes(filtrados);
   });
+}
 
-  inputs.forEach((input) => {
-    if (input.type !== "submit") {
-      input.value = "";
+function configurarFiltros() {
+  document
+    .getElementById("aplicarFiltros")
+    ?.addEventListener("click", aplicarFiltros);
+
+  document.getElementById("clearFilters")?.addEventListener("click", () => {
+    document.querySelectorAll("select").forEach((select) => {
+      select.selectedIndex = 0;
+    });
+
+    const cidadeInput = document.getElementById("filtroCidade");
+
+    if (cidadeInput) {
+      cidadeInput.value = "";
     }
+
+    renderizarAdotantes(todosAdotantes);
   });
+}
 
-  renderizarAdotantes(carregarAdotantes());
+document.addEventListener("DOMContentLoaded", () => {
+  configurarBusca();
+
+  configurarFiltros();
+
+  carregarAdotantes();
 });
-
-// Inicialização
-
-renderizarAdotantes(carregarAdotantes());
