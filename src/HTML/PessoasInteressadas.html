@@ -16,7 +16,7 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/CSS/PessoasInteressadas.css" />
+    <link rel="stylesheet" href="../CSS/PessoasInteressadas.css" />
   </head>
 
   <body>
@@ -60,7 +60,7 @@
 
           <label>Faixa Etária</label>
 
-          <select>
+          <select id="filtroIdade">
             <option>Todas</option>
             <option>18 - 25</option>
             <option>26 - 35</option>
@@ -69,7 +69,7 @@
 
           <label>Experiência com Pets</label>
 
-          <select>
+          <select id="filtroExperiencia">
             <option>Todos</option>
             <option>Iniciante</option>
             <option>Intermediário</option>
@@ -78,7 +78,7 @@
 
           <label>Tipo de Moradia</label>
 
-          <select>
+          <select id="filtroMoradia">
             <option>Todos</option>
             <option>Casa</option>
             <option>Apartamento</option>
@@ -86,9 +86,11 @@
 
           <label>Localização</label>
 
-          <input type="text" placeholder="Cidade ou estado" />
+          <input id="filtroCidade" type="text" placeholder="Cidade ou estado" />
 
-          <button class="filter-btn">Aplicar filtros</button>
+          <button id="aplicarFiltros" class="filter-btn">
+            Aplicar filtros
+          </button>
         </div>
       </aside>
 
@@ -116,6 +118,6 @@
 
     <!-- JS -->
 
-    <script src="/Javascript/PessoasInteressadas.js"></script>
+    <script src="../Javascript/PessoasInteressadas.js"></script>
   </body>
 </html>
