@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Busca/exibição</title>
+
     <link rel="stylesheet" href="/CSS/TelaExibiçao.css" />
     <script src="/JavaScript/TelaExibição.js" defer></script>
   </head>
+
   <body>
     <header class="header">
       <div class="logo">🐾 LarCerto</div>
@@ -16,14 +18,20 @@
         <a href="telaexibicao.html">Pets</a>
         <a href="favoritos.html">Favoritos</a>
         <a href="mensagens.html">Mensagens</a>
-        <a href="perfil.html">Perfil</a>
+        <a href="perfildoador.html">Perfil</a>
       </nav>
 
-      <button class="login-btn">Entrar / Cadastrar</button>
+      <div class="user">
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+          alt="Usuário"
+        />
+      </div>
     </header>
 
     <section class="search-area">
       <input
+        id="searchInput"
         type="text"
         placeholder="Buscar por nome, raça ou localização..."
       />
@@ -39,14 +47,14 @@
           </div>
 
           <label>Idade</label>
-          <select>
+          <select id="idadeFilter">
             <option>Todas</option>
             <option>Filhote</option>
             <option>Adulto</option>
           </select>
 
           <label>Porte</label>
-          <select>
+          <select id="porteFilter">
             <option>Todos</option>
             <option>Pequeno</option>
             <option>Médio</option>
@@ -54,14 +62,14 @@
           </select>
 
           <label>Gênero</label>
-          <select>
+          <select id="generoFilter">
             <option>Todos</option>
             <option>Macho</option>
             <option>Fêmea</option>
           </select>
 
           <label>Temperamento</label>
-          <select>
+          <select id="temperamentoFilter">
             <option>Todos</option>
             <option>Calmo</option>
             <option>Brincalhão</option>
@@ -69,7 +77,11 @@
           </select>
 
           <label>Localização</label>
-          <input type="text" placeholder="Cidade ou estado" />
+          <input
+            id="localizacaoFilter"
+            type="text"
+            placeholder="Cidade ou estado"
+          />
         </div>
 
         <div class="recommended">
@@ -80,6 +92,7 @@
               src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=300&q=80"
               alt="Cachorro"
             />
+
             <div>
               <strong>Mel</strong>
               <p>2 anos • Fêmea</p>
@@ -92,6 +105,7 @@
               src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=300&q=80"
               alt="Cachorro"
             />
+
             <div>
               <strong>Thor</strong>
               <p>3 anos • Macho</p>
@@ -109,112 +123,15 @@
             <h1>Encontre seu novo melhor amigo</h1>
             <p>Adote, transforme uma vida e ganhe um amigo para sempre.</p>
           </div>
-          <span>368 cães disponíveis</span>
+
+          <span>0 cães disponíveis</span>
         </div>
 
-        <div class="pet-grid">
-          <div class="pet-card">
-            <img
-              src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=500&q=80"
-              alt="Mel"
-            />
-            <button class="favorite">♡</button>
-            <div class="pet-info">
-              <h3>Mel</h3>
-              <p>2 anos • Fêmea</p>
-              <p>Médio • Carinhosa</p>
-              <p>📍 São Paulo, SP</p>
-              <button class="btn-profile">
-                <a class="btn-profile" href="perfilcachorro.html">Ver perfil</a>
-              </button>
-            </div>
-          </div>
+        <!-- PETS CARREGADOS PELO JSON -->
 
-          <div class="pet-card">
-            <img
-              src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=500&q=80"
-              alt="Thor"
-            />
-            <button class="favorite">♡</button>
-            <div class="pet-info">
-              <h3>Thor</h3>
-              <p>3 anos • Macho</p>
-              <p>Grande • Protetor</p>
-              <p>📍 Campinas, SP</p>
-              <button class="btn-profile">
-                <a class="btn-profile" href="perfilcachorro.html">Ver perfil</a>
-              </button>
-            </div>
-          </div>
+        <div id="petGrid" class="pet-grid"></div>
 
-          <div class="pet-card">
-            <img
-              src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80"
-              alt="Luna"
-            />
-            <button class="favorite">♡</button>
-            <div class="pet-info">
-              <h3>Luna</h3>
-              <p>1 ano • Fêmea</p>
-              <p>Pequeno • Brincalhona</p>
-              <p>📍 Santos, SP</p>
-              <button class="btn-profile">
-                <a class="btn-profile" href="perfilcachorro.html">Ver perfil</a>
-              </button>
-            </div>
-          </div>
-
-          <div class="pet-card">
-            <img
-              src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=500&q=80"
-              alt="Bob"
-            />
-            <button class="favorite">♡</button>
-            <div class="pet-info">
-              <h3>Bob</h3>
-              <p>4 anos • Macho</p>
-              <p>Médio • Tranquilo</p>
-              <p>📍 São José, SC</p>
-              <button class="btn-profile">
-                <a class="btn-profile" href="perfilcachorro.html">Ver perfil</a>
-              </button>
-            </div>
-          </div>
-
-          <div class="pet-card">
-            <img
-              src="https://images.unsplash.com/photo-1598134493179-51332e56807f?auto=format&fit=crop&w=500&q=80"
-              alt="Amora"
-            />
-            <button class="favorite">♡</button>
-            <div class="pet-info">
-              <h3>Amora</h3>
-              <p>2 anos • Fêmea</p>
-              <p>Médio • Dócil</p>
-              <p>📍 Curitiba, PR</p>
-              <button class="btn-profile">
-                <a class="btn-profile" href="perfilcachorro.html">Ver perfil</a>
-              </button>
-            </div>
-          </div>
-
-          <div class="pet-card">
-            <img
-              src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=500&q=80"
-              alt="Apolo"
-            />
-            <button class="favorite">♡</button>
-            <div class="pet-info">
-              <h3>Apolo</h3>
-              <p>3 anos • Macho</p>
-              <p>Grande • Ativo</p>
-              <p>📍 Porto Alegre, RS</p>
-              <button class="btn-profile">
-                <a class="btn-profile" href="perfilcachorro.html">Ver perfil</a>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div id="semResultados"></div>
 
         <div class="pagination">
           <button>‹</button>
@@ -252,7 +169,9 @@
 
       <div>
         <h3>Fique por dentro</h3>
+
         <p>Receba novidades sobre adoção.</p>
+
         <div class="newsletter">
           <input type="email" placeholder="Seu e-mail" />
           <button>Inscrever</button>
