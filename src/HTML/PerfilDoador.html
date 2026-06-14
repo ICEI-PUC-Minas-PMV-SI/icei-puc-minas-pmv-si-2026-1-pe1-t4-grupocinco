@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil do Doador — LarCerto</title>
+    <link rel="stylesheet" href="../CSS/perfildoador.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="../Javascript/acesso-restricao.js"></script>
+  </head>
+  <body>
+      <header class="header">
+        <div class="logo">🐾 LarCerto</div>
+
+        <nav class="nav">
+          <a href="telainicial.html">Início</a>
+          <a href="PessoasInteressadas.html">Adotantes</a>
+          <a href="favoritos.html">Favoritos</a>
+          <a href="mensagens.html">Mensagens</a>
+          <a href="PerfilDoador.html" class="active">Perfil</a>
+        </nav>
+      </header>
+
+      <div class="container">
+
+        <div class="conteudo">
+          <div class="topo">
+            <button type="button" class="btn-editar" id="btn-editar" title="Editar Perfil">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+
+            <div class="perfil">
+              <div class="fotoP">
+                <img class="foto"
+                     src="https://via.placeholder.com/400"
+                     alt="Foto de Perfil">
+              </div>
+              <div class="troca-foto-overlay"
+                   style="position:absolute; bottom:-35px; left:50%; transform:translateX(-50%);
+                          display:none; cursor:pointer; background:var(--laranja); color:white;
+                          padding:6px 14px; border-radius:20px; font-size:13px; font-weight:bold;
+                          white-space:nowrap; z-index:20;">
+                <i class="fa-solid fa-camera"></i> Alterar Foto
+              </div>
+            </div>
+
+            <input type="file" id="inputFoto" accept="image/*" style="display:none;">
+
+            <h1 class="nome">Carregando...</h1>
+          </div>
+          <div class="info">
+              <div class="caixa-info">
+                  <span class="info-pessoal">Nome:</span>
+                  <span class="info-doador">Carregando...</span>
+              </div>
+              <div class="caixa-info">
+                  <span class="info-pessoal">Email:</span>
+                  <span class="info-doador">Carregando...</span>
+              </div>
+              <div class="caixa-info">
+                  <span class="info-pessoal">Telefone:</span>
+                  <span class="info-doador">Carregando...</span>
+              </div>
+              <div class="caixa-info">
+                  <span class="info-pessoal">Endereço:</span>
+                  <span class="info-doador">Carregando...</span>
+              </div>
+              <div class="caixa-info">
+                  <span class="info-pessoal">Bairro:</span>
+                  <span class="info-doador">Carregando...</span>
+              </div>
+              <div class="caixa-info">
+                  <span class="info-pessoal">Estado:</span>
+                  <span class="info-doador">Carregando...</span>
+              </div>
+              <div class="botoes-rodape">
+                <a href="#"><button class="btn-nav btn-pet-adocao">🐾 PETs em Adoção</button></a>
+                <a href="#"><button class="btn-nav btn-pet-doados">📋 Histórico de PETs</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+      <div>
+        <h3>AdotaPet</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+      </div>
+
+      <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+
+      <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div>
+        <h3>Fique por dentro</h3>
+        <p>Receba novidades sobre adoção.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Seu e-mail" />
+          <button>Inscrever</button>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../Javascript/perfilDoador.js"></script>
+  </body>
+</html>
