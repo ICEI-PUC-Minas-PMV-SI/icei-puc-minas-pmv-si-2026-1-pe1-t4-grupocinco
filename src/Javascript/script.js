@@ -44,10 +44,25 @@ function registrarUsuario(event) {
     // 1) Cria o novo usuário com os IDs do HTML + um ID único gerado por timestamp
     const novoUsuario = {
         id: "usr_" + Date.now(),
+        tipo: "adotante",
         email: email,
         password: password,
         name: name,
-        idnumber: idnumber
+        idnumber: idnumber,
+        idade: null,
+        profissao: "",
+        cidade: "",
+        estado: "",
+        sobre: "",
+        moradia: {
+            tipo: "",
+            quintal: false
+        },
+        experiencias: [],
+        estiloVida: [],
+        procurandoPor: "",
+        fotoPerfil: "",
+        petInteresse: ""
     };
 
     // Salva no array e atualiza o localStorage
