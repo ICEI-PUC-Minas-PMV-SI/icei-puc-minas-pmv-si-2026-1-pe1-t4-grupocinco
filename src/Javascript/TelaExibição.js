@@ -1,6 +1,16 @@
 let todosPets = [];
 
 document.addEventListener("DOMContentLoaded", () => {
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+  if (usuarioLogado?.tipo === "doador") {
+    configurarTelaDoador();
+
+    return;
+  }
+
+  configurarTelaAdotante();
+
   carregarPets();
 
   document
@@ -15,6 +25,81 @@ document.addEventListener("DOMContentLoaded", () => {
     select.addEventListener("change", aplicarFiltros);
   });
 });
+
+function configurarTelaAdotante() {
+  const menuCadastrarPet = document.getElementById("menuCadastrarPet");
+
+  if (menuCadastrarPet) {
+    menuCadastrarPet.style.display = "none";
+  }
+}
+
+function configurarTelaDoador() {
+  const menuCadastrarPet = document.getElementById("menuCadastrarPet");
+
+  if (menuCadastrarPet) {
+    menuCadastrarPet.style.display = "inline";
+  }
+
+  const menuFavoritos = document.getElementById("menuFavoritos");
+
+  if (menuFavoritos) {
+    menuFavoritos.style.display = "none";
+  }
+
+  const menuPets = document.getElementById("menuPets");
+
+  if (menuPets) {
+    menuPets.style.display = "none";
+  }
+
+  const searchArea = document.querySelector(".search-area");
+
+  if (searchArea) {
+    searchArea.style.display = "none";
+  }
+
+  const sidebar = document.querySelector(".sidebar");
+
+  if (sidebar) {
+    sidebar.style.display = "none";
+  }
+
+  const content = document.querySelector(".content");
+
+  content.innerHTML = `
+
+    <div class="painel-doador">
+
+      <h1>Painel do Doador</h1>
+
+      <p>
+        Você está logado como doador.
+      </p>
+
+      <p>
+        Como doador você pode:
+      </p>
+
+      <ul style="text-align:left; max-width:500px; margin:20px auto;">
+        <li>Cadastrar pets</li>
+        <li>Editar pets cadastrados</li>
+        <li>Visualizar candidatos</li>
+        <li>Aprovar ou rejeitar candidaturas</li>
+        <li>Editar seu perfil</li>
+      </ul>
+
+      <a
+        href="cadastropet.html"
+        class="btn-doador"
+      >
+        Cadastrar Pet
+      </a>
+
+    </div>
+
+  `;
+}
 
 async function carregarPets() {
   try {
