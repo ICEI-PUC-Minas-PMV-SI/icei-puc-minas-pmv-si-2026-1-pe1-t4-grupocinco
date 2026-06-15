@@ -67,6 +67,23 @@ body {
   gap: 16px;
 }
 
+.logout-btn {
+  height: 42px;
+  border: 1px solid var(--laranja);
+  background: transparent;
+  color: var(--laranja);
+  border-radius: 10px;
+  padding: 0 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: var(--laranja);
+  color: var(--branco);
+}
+
 .header-right input {
   width: 240px;
   height: 42px;
@@ -295,13 +312,51 @@ body {
   color: white;
 }
 
-/* RESPONSIVO */
-
-@media (max-width: 1400px) {
-  .adopters-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.footer {
+  background: var(--preto);
+  color: var(--branco);
+  padding: 45px 6%;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 2fr;
+  gap: 40px;
 }
+
+.footer h3 {
+  margin-bottom: 14px;
+}
+
+.footer p,
+.footer a {
+  display: block;
+  color: #d1d5db;
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.newsletter {
+  display: flex;
+  margin-top: 14px;
+}
+
+.newsletter input {
+  padding: 12px;
+  border: none;
+  border-radius: 7px 0 0 7px;
+  outline: none;
+}
+
+.newsletter button {
+  border: none;
+  background: var(--laranja);
+  color: var(--branco);
+  padding: 0 16px;
+  border-radius: 0 7px 7px 0;
+  cursor: pointer;
+}
+
+  
+
 
 @media (max-width: 1100px) {
   .container {
