@@ -3,6 +3,7 @@ let todosPets = [];
 document.addEventListener("DOMContentLoaded", () => {
   const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
+  atualizarAvatarHeader(usuarioLogado);
   configurarLinkPerfil(usuarioLogado);
 
   const ehDoador =
@@ -50,6 +51,13 @@ function configurarLinkPerfil(usuarioLogado) {
     usuarioLogado?.tipo === "doador";
 
   linkPerfil.href = ehDoador ? "PerfilDoador.html" : "perfilAdotante.html";
+}
+
+function atualizarAvatarHeader(usuarioLogado) {
+  const avatarImg = document.querySelector(".header .user img");
+  if (!avatarImg || !usuarioLogado?.fotoPerfil) return;
+
+  avatarImg.src = usuarioLogado.fotoPerfil;
 }
 
 function configurarTelaAdotante() {
@@ -132,7 +140,20 @@ async function carregarPets() {
     const response = await fetch("../Javascript/data.json");
     const dados = await response.json();
 
-    todosPets = dados.pets || [];
+    const petsJson = dados.pets || [];
+    const petsLocalStorage = JSON.parse(localStorage.getItem("pets")) || [];
+
+    const petsMap = new Map();
+
+    petsJson.forEach((pet) => {
+      petsMap.set(pet.id, pet);
+    });
+
+    petsLocalStorage.forEach((pet) => {
+      petsMap.set(pet.id, pet);
+    });
+
+    todosPets = Array.from(petsMap.values());
 
     renderizarPets(todosPets);
     atualizarContador(todosPets.length);

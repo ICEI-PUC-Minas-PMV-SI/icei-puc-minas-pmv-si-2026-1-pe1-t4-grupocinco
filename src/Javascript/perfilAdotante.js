@@ -32,23 +32,24 @@ async function iniciarPagina() {
             idUsuarioLogado = sessaoRaw;
         }
 
-        const resposta =
-            await fetch("../Javascript/data.json");
+        const resposta = await fetch("../Javascript/data.json");
 
         if (!resposta.ok) {
-
             throw new Error(
                 "Não foi possível carregar o data.json"
             );
         }
 
-        const dados =
-            await resposta.json();
+        const dados = await resposta.json();
 
+        const usuariosSistema =
+            obterUsuariosSistema(dados);
+
+        dados.usuarios = usuariosSistema;
         dadosSistema = dados;
 
         const usuarioLogado =
-            dados.usuarios.find(
+            usuariosSistema.find(
                 usuario =>
                     usuario.id === idUsuarioLogado
             );
@@ -77,7 +78,7 @@ async function iniciarPagina() {
             idUsuarioLogado;
 
         const perfilExibido =
-            dados.usuarios.find(
+            usuariosSistema.find(
                 usuario =>
                     usuario.id === idPerfil
             );
@@ -120,6 +121,8 @@ async function iniciarPagina() {
             dados
         );
 
+        atualizarAvatarHeader(usuarioLogado);
+
         controlarPermissoes(
             usuarioLogado,
             perfilExibido
@@ -130,6 +133,7 @@ async function iniciarPagina() {
             perfilExibido
         );
         configurarTrocaFoto();
+        configurarLogout();
 
     } catch (erro) {
 
@@ -220,17 +224,89 @@ function preencherPerfil(usuario, dados) {
         "estVida"
     );
 
-    const pet =
+    let pet =
         dados.pets.find(
             pet =>
                 pet.id ===
                 usuario.petInteresse
         );
 
+    const candidatura = obterCandidaturaParaPerfil(usuario.id, pet?.id);
+
+    if (!pet && candidatura) {
+        pet = dados.pets.find(
+            (pet) => pet.id === candidatura.petId
+        );
+    }
+
+    const nomePet =
+        pet?.petname ||
+        candidatura?.petName ||
+        "Nenhum";
+
     alterarTexto(
         "nomePet",
-        pet?.petname || "Nenhum"
+        nomePet
     );
+
+    atualizarStatusPerfil(usuario.id, pet?.id);
+}
+
+function obterCandidaturaPorCandidato(candidatoId) {
+    const candidaturas =
+        JSON.parse(localStorage.getItem("candidaturas")) || [];
+
+    return candidaturas.find(
+        (c) => c.candidatoId === candidatoId
+    );
+}
+
+function obterCandidaturaParaPerfil(candidatoId, petId) {
+    const candidaturas =
+        JSON.parse(localStorage.getItem("candidaturas")) || [];
+
+    if (petId) {
+        return candidaturas.find(
+            (c) => c.candidatoId === candidatoId && c.petId === petId
+        );
+    }
+
+    return candidaturas.find(
+        (c) => c.candidatoId === candidatoId
+    );
+}
+
+function atualizarStatusPerfil(candidatoId, petId) {
+    const statusEl = document.getElementById(
+        "statusCandidatura"
+    );
+
+    if (!statusEl) return;
+
+    const candidatura =
+        obterCandidaturaParaPerfil(candidatoId, petId);
+
+    if (!candidatura) {
+        statusEl.textContent =
+            "Status da candidatura: em análise";
+        return;
+    }
+
+    const statusMap = {
+        aprovado: "Aprovado",
+        reprovado: "Reprovado",
+        pendente: "Em análise"
+    };
+
+    statusEl.textContent =
+        `Status da candidatura: ${statusMap[candidatura.status] || "Em análise"}`;
+}
+
+function atualizarAvatarHeader(usuarioLogado) {
+    const avatarImg = document.querySelector(".header .user img");
+    if (!avatarImg || !usuarioLogado?.fotoPerfil) return;
+
+    avatarImg.src = usuarioLogado.fotoPerfil;
 }
 
 function preencherTags(
@@ -360,24 +436,57 @@ function configurarEventos(
                 const nomeAdotante =
                     perfilExibido.name;
 
-                const pet =
+                let pet =
                     dados.pets.find(
                         p =>
                             p.id ===
                             perfilExibido.petInteresse
                     );
 
-                const nomePet =
-                    pet?.petname ||
-                    "o pet";
-
-                const mensagem =
-                    encodeURIComponent(
-                        `Parabéns, ${nomeAdotante}!! Você acabou de ser aprovado para a adoção do ${nomePet}. Deseja continuar com a adoção?`
+                const candidatura =
+                    obterCandidaturaParaPerfil(
+                        perfilExibido.id
                     );
 
-                window.location.href =
-                    `mensagens.html?contato=${encodeURIComponent(nomeAdotante)}&msg=${mensagem}`;
+                if (!pet && candidatura) {
+                    pet = dados.pets.find(
+                        (p) => p.id === candidatura.petId
+                    );
+                }
+
+                const petId =
+                    candidatura?.petId ||
+                    pet?.id;
+
+                const nomePet =
+                    pet?.petname ||
+                    candidatura?.petName ||
+                    "o pet";
+
+                atualizarStatusCandidatura(
+                    perfilExibido.id,
+                    petId,
+                    "aprovado"
+                );
+
+                atualizarStatusPerfil(
+                    perfilExibido.id,
+                    petId
+                );
+
+                mostrarPopupResultado(
+                    "Aprovado",
+                    `A candidatura de ${nomeAdotante} para ${nomePet} foi aprovada.`,
+                    () => {
+                        const mensagem =
+                            encodeURIComponent(
+                                `Parabéns, ${nomeAdotante}!! Você acabou de ser aprovado para a adoção do ${nomePet}. Deseja continuar com a adoção?`
+                            );
+
+                        window.location.href =
+                            `mensagens.html?contato=${encodeURIComponent(nomeAdotante)}&msg=${mensagem}`;
+                    }
+                );
             }
         );
 
@@ -392,15 +501,31 @@ function configurarEventos(
                 const nomeAdotante =
                     perfilExibido.name;
 
-                const pet =
+                let pet =
                     dados.pets.find(
                         p =>
                             p.id ===
                             perfilExibido.petInteresse
                     );
 
+                const candidatura =
+                    obterCandidaturaParaPerfil(
+                        perfilExibido.id
+                    );
+
+                if (!pet && candidatura) {
+                    pet = dados.pets.find(
+                        (p) => p.id === candidatura.petId
+                    );
+                }
+
+                const petId =
+                    candidatura?.petId ||
+                    pet?.id;
+
                 const nomePet =
                     pet?.petname ||
+                    candidatura?.petName ||
                     "o pet";
 
                 // Remove petInteresse do perfil editado
@@ -441,15 +566,113 @@ function configurarEventos(
                     }
                 }
 
-                const mensagem =
-                    encodeURIComponent(
-                        `Poxa, ${nomeAdotante}, seu perfil foi analisado e você não se enquadra para a adoção do ${nomePet}.`
-                    );
+                atualizarStatusCandidatura(
+                    perfilExibido.id,
+                    petId,
+                    "reprovado"
+                );
 
-                window.location.href =
-                    `mensagens.html?contato=${encodeURIComponent(nomeAdotante)}&msg=${mensagem}`;
+                atualizarStatusPerfil(
+                    perfilExibido.id,
+                    petId
+                );
+
+                mostrarPopupResultado(
+                    "Reprovado",
+                    `A candidatura de ${nomeAdotante} para ${nomePet} foi reprovada.`,
+                    () => {
+                        const mensagem =
+                            encodeURIComponent(
+                                `Poxa, ${nomeAdotante}, seu perfil foi analisado e você não se enquadra para a adoção do ${nomePet}.`
+                            );
+
+                        window.location.href =
+                            `mensagens.html?contato=${encodeURIComponent(nomeAdotante)}&msg=${mensagem}`;
+                    }
+                );
             }
         );
+}
+
+function mostrarPopupResultado(titulo, mensagem, onConfirm) {
+    const overlay = document.createElement("div");
+    overlay.id = "popupOverlay";
+    overlay.style.position = "fixed";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.45)";
+    overlay.style.zIndex = 9999;
+
+    overlay.innerHTML = `
+        <div style="background:#fff; padding:24px; border-radius:16px; width: min(520px, 90%); text-align:center; box-shadow:0 14px 40px rgba(0,0,0,0.18);">
+            <h2 style="margin-bottom:12px; color:#1f2937;">${titulo}</h2>
+            <p style="margin-bottom:24px; color:#4b5563;">${mensagem}</p>
+            <button id="popupConfirm" style="padding:12px 24px; background:#2563eb; color:#fff; border:none; border-radius:10px; cursor:pointer; font-size:1rem;">OK</button>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    document.getElementById("popupConfirm")?.addEventListener("click", () => {
+        overlay.remove();
+        onConfirm?.();
+    });
+}
+
+function atualizarStatusCandidatura(candidatoId, petId, status) {
+    const candidaturas =
+        JSON.parse(localStorage.getItem("candidaturas")) || [];
+
+    if (!petId) {
+        const fallback = candidaturas.find(
+            (cand) => cand.candidatoId === candidatoId
+        );
+        petId = fallback?.petId;
+    }
+
+    if (!candidatoId || !petId) return;
+
+    const indice = candidaturas.findIndex(
+        (cand) =>
+            cand.candidatoId === candidatoId &&
+            cand.petId === petId
+    );
+
+    if (indice >= 0) {
+        candidaturas[indice].status = status;
+        candidaturas[indice].timestamp = new Date().toISOString();
+    } else {
+        const pet =
+            dadosSistema?.pets.find(
+                (p) => p.id === petId
+            );
+
+        candidaturas.push({
+            id: `cand_${Date.now()}`,
+            petId,
+            petName: pet?.petname || "Pet",
+            doadorId: usuarioAtual?.id || "",
+            candidatoId,
+            candidatoName: perfilExibido.name || "Adotante",
+            candidatoFoto: perfilExibido.fotoPerfil || "",
+            status,
+            timestamp: new Date().toISOString(),
+            mensagem:
+                status === "aprovado"
+                    ? `Sua candidatura para ${pet?.petname || "o pet"} foi aprovada.`
+                    : `Sua candidatura para ${pet?.petname || "o pet"} foi reprovada.`,
+        });
+    }
+
+    localStorage.setItem(
+        "candidaturas",
+        JSON.stringify(candidaturas)
+    );
 }
 
 function configurarTrocaFoto() {
@@ -463,11 +686,6 @@ function configurarTrocaFoto() {
     const overlay =
     document.getElementById(
         "overlayFoto"
-    );
-
-    overlay?.addEventListener(
-        "click",
-        () => input.click()
     );
 
     if (!input || !foto) return;
@@ -509,6 +727,26 @@ function configurarTrocaFoto() {
             leitor.readAsDataURL(
                 arquivo
             );
+        }
+    );
+}
+
+function configurarLogout() {
+    const logoutBtn =
+        document.getElementById(
+            "logoutBtn"
+        );
+
+    if (!logoutBtn) return;
+
+    logoutBtn.addEventListener(
+        "click",
+        () => {
+            localStorage.removeItem(
+                "usuarioLogado"
+            );
+            window.location.href =
+                "telainicial.html";
         }
     );
 }
@@ -579,6 +817,8 @@ function ativarModoEdicao() {
     document.getElementById(
         "overlayFoto"
     );
+
+    // O input de arquivo permanece invisível; o label `overlayFoto` usa `for="inputFoto"`.
 
     if (overlay) {
 
@@ -756,6 +996,8 @@ function salvarPerfil() {
             "fotoPerfil"
         ).src;
 
+    salvarUsuarioLocalStorage(usuarioAtual);
+
     localStorage.setItem(
         "perfilEditado",
         JSON.stringify(usuarioAtual)
@@ -797,6 +1039,53 @@ function salvarPerfil() {
         overlay.style.display =
             "none";
 }
+}
+
+function carregarUsuariosLocalStorage() {
+    try {
+        return JSON.parse(
+            localStorage.getItem("usuarios")
+        ) || [];
+    } catch {
+        return [];
+    }
+}
+
+function salvarUsuarioLocalStorage(usuario) {
+    const usuariosLocal =
+        carregarUsuariosLocalStorage();
+
+    const indice = usuariosLocal.findIndex(
+        u => u.id === usuario.id
+    );
+
+    if (indice >= 0) {
+        usuariosLocal[indice] = usuario;
+    } else {
+        usuariosLocal.push(usuario);
+    }
+
+    localStorage.setItem(
+        "usuarios",
+        JSON.stringify(usuariosLocal)
+    );
+}
+
+function obterUsuariosSistema(dados) {
+    const usuariosLocal =
+        carregarUsuariosLocalStorage();
+
+    const usuariosPorId = new Map();
+
+    (dados.usuarios || []).forEach(usuario => {
+        usuariosPorId.set(usuario.id, usuario);
+    });
+
+    usuariosLocal.forEach(usuario => {
+        usuariosPorId.set(usuario.id, usuario);
+    });
+
+    return Array.from(usuariosPorId.values());
 }
 
 function alterarTexto(

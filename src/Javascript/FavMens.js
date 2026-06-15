@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatHeader = document.querySelector(".chat-header");
     const searchInput = document.querySelector(".search-box input");
     const sendBtn = document.querySelector(".send-btn"); 
-    const contatos = document.querySelectorAll(".contact");
+    const contactList = document.querySelector(".contact-list");
+    let contatos = document.querySelectorAll(".contact");
 
     // === BANCO DE DADOS DE CONVERSAS ===
     const historicoConversas = {
@@ -40,6 +41,9 @@ if (paginaAtual === "telainicial.html") {
 } else if (paginaAtual === "PerfilDoador.html") {
     document.getElementById("nav-perfil")?.classList.add("active");
 }
+
+    carregarContatosDinamicos();
+    contatos = document.querySelectorAll(".contact");
     // === FUNÇÕES AUXILIARES DO CHAT ===
     function getContatoAtivo() {
         if (!chatHeader) return "Ana Almeida";
@@ -124,6 +128,44 @@ if (paginaAtual === "telainicial.html") {
                     `;
                 }
                 carregarMensagens(nome);
+            });
+        });
+    }
+
+    function carregarContatosDinamicos() {
+        if (!contactList) return;
+
+        const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado")) || {};
+        if (usuarioLogado.perfil !== "doar") return;
+
+        const candidaturas = JSON.parse(localStorage.getItem("candidaturas")) || [];
+        const candidaturasDoDoador = candidaturas.filter(c => c.doadorId === usuarioLogado.id);
+        if (!candidaturasDoDoador.length) return;
+
+        candidaturasDoDoador.forEach(candidatura => {
+            const existeContato = Array.from(contactList.querySelectorAll(".contact strong")).some(
+                (el) => el.innerText.trim() === candidatura.candidatoName
+            );
+
+            if (existeContato) return;
+
+            const contato = document.createElement("div");
+            contato.className = "contact";
+            contato.innerHTML = `
+                <img src="${candidatura.candidatoFoto || "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"}" class="avatar-img" alt="${candidatura.candidatoName}">
+                <div class="contact-info">
+                    <div class="name-time"><strong>${candidatura.candidatoName}</strong></div>
+                    <p class="sub-text">Sobre: ${candidatura.petName}</p>
+                    <p class="last-msg">Nova candidatura recebida</p>
+                </div>
+            `;
+
+            contactList.prepend(contato);
+            historicoConversas[candidatura.candidatoName] = historicoConversas[candidatura.candidatoName] || [];
+            historicoConversas[candidatura.candidatoName].unshift({
+                tipo: "received",
+                texto: candidatura.mensagem,
+                hora: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
             });
         });
     }

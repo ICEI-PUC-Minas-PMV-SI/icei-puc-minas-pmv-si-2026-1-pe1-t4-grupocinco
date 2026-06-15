@@ -54,8 +54,11 @@ async function iniciarPagina() {
 
         dadosSistema = dados;
 
+        const usuariosSistema =
+            obterUsuariosSistema(dados);
+
         const usuario =
-            dados.usuarios.find(
+            usuariosSistema.find(
                 u => u.id === idUsuarioLogado
             );
 
@@ -102,6 +105,23 @@ async function iniciarPagina() {
             "Ocorreu um erro ao carregar o perfil."
         );
     }
+}
+
+function obterUsuariosSistema(dados) {
+    const usuariosLocal =
+        JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const usuariosPorId = new Map();
+
+    (dados.usuarios || []).forEach(usuario => {
+        usuariosPorId.set(usuario.id, usuario);
+    });
+
+    usuariosLocal.forEach(usuario => {
+        usuariosPorId.set(usuario.id, usuario);
+    });
+
+    return Array.from(usuariosPorId.values());
 }
 
 function preencherPerfil(usuario) {

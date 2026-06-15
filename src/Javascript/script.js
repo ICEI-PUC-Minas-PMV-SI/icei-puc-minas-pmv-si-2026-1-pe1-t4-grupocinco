@@ -175,15 +175,46 @@ function registrarPet(event) {
     // Recupera a lista de pets global do localStorage
     let pets = JSON.parse(localStorage.getItem("pets")) || [];
 
-    // Verifica se o animal já está cadastrado (validação por nome, raça e dono)
-    const petExiste = pets.some(pet => 
-        pet.petname.toLowerCase() === petname.toLowerCase() && 
-        pet.raca.toLowerCase() === raca.toLowerCase() &&
-        pet.userId === usuarioLogado.id
-    );
+    const params = new URLSearchParams(window.location.search);
+    const petIdEmEdicao = params.get("petId");
+    const estaEditando = Boolean(petIdEmEdicao);
 
-    if (petExiste) {
-        alert("Você já cadastrou um pet com esse mesmo nome e raça!");
+    if (!estaEditando) {
+        // Verifica se o animal já está cadastrado (validação por nome, raça e dono)
+        const petExiste = pets.some(pet => 
+            pet.petname.toLowerCase() === petname.toLowerCase() && 
+            pet.raca.toLowerCase() === raca.toLowerCase() &&
+            pet.userId === usuarioLogado.id
+        );
+
+        if (petExiste) {
+            alert("Você já cadastrou um pet com esse mesmo nome e raça!");
+            return;
+        }
+    }
+
+    if (estaEditando) {
+        const indicePet = pets.findIndex((pet) => pet.id === petIdEmEdicao && pet.userId === usuarioLogado.id);
+        if (indicePet >= 0) {
+            pets[indicePet] = {
+                ...pets[indicePet],
+                petname: petname,
+                raca: raca,
+                age: age,
+                size: size,
+                sex: sex,
+                personality: personality,
+                vacinas: vacinas,
+                fotos: fotos
+            };
+
+            localStorage.setItem("pets", JSON.stringify(pets));
+            alert("Pet atualizado com sucesso!");
+            window.location.href = `HistoricoPetEAtivo.html?userId=${usuarioLogado.id}&em_adocao=true`;
+            return;
+        }
+
+        alert("Não foi possível localizar o pet para edição.");
         return;
     }
 
@@ -221,7 +252,58 @@ document.addEventListener("DOMContentLoaded", () => {
             input.addEventListener("blur", atualizarPreviewLinks);
         });
     }
+
+    carregarPetParaEdicao();
 });
+
+function carregarPetParaEdicao() {
+    const path = window.location.pathname;
+    if (!path.includes("cadastropet.html")) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const petId = params.get("petId");
+    if (!petId) return;
+
+    const pets = JSON.parse(localStorage.getItem("pets")) || [];
+    const pet = pets.find((item) => item.id === petId);
+    if (!pet) return;
+
+    const titulo = document.querySelector("h2");
+    if (titulo) {
+        titulo.textContent = "Editar Pet";
+    }
+
+    document.getElementById("petname").value = pet.petname || "";
+    document.getElementById("raca").value = pet.raca || "";
+    document.getElementById("age").value = pet.age || "";
+    document.getElementById("size").value = pet.size || "";
+    document.getElementById("sex").value = pet.sex || "";
+    document.getElementById("personality").value = pet.personality || "";
+
+    const fotos = pet.fotos || [];
+    document.getElementById("petPhoto1").value = fotos[0] || "";
+    document.getElementById("petPhoto2").value = fotos[1] || "";
+    document.getElementById("petPhoto3").value = fotos[2] || "";
+
+    const vacinas = pet.vacinas || [];
+    [
+        ["vac_v8", "v8_v10"],
+        ["vac_raiva", "raiva"],
+        ["vac_gripe", "gripe"],
+        ["vac_giardia", "giardia"],
+        ["vac_leish", "leishmaniose"],
+    ].forEach(([id, valor]) => {
+        const checkbox = document.getElementById(id);
+        if (checkbox) {
+            checkbox.checked = vacinas.includes(valor);
+        }
+    });
+
+    const botaoEnviar = document.querySelector("button[type='submit']");
+    if (botaoEnviar) {
+        botaoEnviar.textContent = "Salvar Alterações";
+    }
+}
 
 function atualizarPreviewLinks() {
     // Procura ou cria o container de preview dinamicamente caso ele não esteja explícito abaixo dos novos inputs

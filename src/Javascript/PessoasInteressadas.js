@@ -1,31 +1,109 @@
+let todosCandidatos = [];
 let todosAdotantes = [];
+let usuarioAtual = null;
 
 async function carregarAdotantes() {
   try {
+    const sessaoRaw = localStorage.getItem("usuarioLogado");
+
+    if (!sessaoRaw) {
+      mostrarMensagemAviso(
+        "Faça login como doador para visualizar os candidatos à adoção."
+      );
+      return;
+    }
+
+    const sessao = JSON.parse(sessaoRaw);
+    usuarioAtual = sessao;
+
+    if (usuarioAtual.perfil !== "doar" && usuarioAtual.tipo !== "doador") {
+      mostrarMensagemAviso(
+        "Esta página exibe apenas candidatos para doadores logados."
+      );
+      return;
+    }
+
     const response = await fetch("../Javascript/data.json");
     const dados = await response.json();
 
-    todosAdotantes = dados.usuarios.filter(
-      (usuario) => usuario.tipo === "adotante",
+    const usuariosSistema = obterUsuariosSistema(dados);
+    todosAdotantes = usuariosSistema.filter(
+      (usuario) => usuario.tipo === "adotante"
     );
 
-    renderizarAdotantes(todosAdotantes);
+    const candidaturas =
+      JSON.parse(localStorage.getItem("candidaturas")) || [];
+
+    todosCandidatos = candidaturas
+      .filter((c) => c.doadorId === usuarioAtual.id)
+      .map((candidatura) => {
+        const adotante = usuariosSistema.find(
+          (usuario) => usuario.id === candidatura.candidatoId
+        );
+
+        return {
+          id: candidatura.candidatoId,
+          name: candidatura.candidatoName || adotante?.name || "Adotante",
+          fotoPerfil:
+            candidatura.candidatoFoto || adotante?.fotoPerfil ||
+            "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=500&q=80",
+          cidade: adotante?.cidade || "Local não informado",
+          estado: adotante?.estado || "",
+          idade: adotante?.idade || null,
+          experiencias: adotante?.experiencias || [],
+          moradia: adotante?.moradia || {},
+          petName: candidatura.petName || "Pet",
+          mensagem: candidatura.mensagem || "Sem mensagem",
+          status: candidatura.status || "pendente",
+          timestamp: candidatura.timestamp || "",
+        };
+      });
+
+    renderizarAdotantes(todosCandidatos);
   } catch (erro) {
     console.error("Erro ao carregar adotantes:", erro);
 
     const grid = document.getElementById("adoptersGrid");
 
     if (grid) {
-      grid.innerHTML = "<p>Erro ao carregar os adotantes.</p>";
+      grid.innerHTML = "<p>Erro ao carregar os candidatos.</p>";
     }
   }
+}
+
+function obterUsuariosSistema(dados) {
+  const usuariosLocal = JSON.parse(localStorage.getItem("usuarios")) || [];
+  const usuariosPorId = new Map();
+
+  (dados.usuarios || []).forEach((usuario) => {
+    usuariosPorId.set(usuario.id, usuario);
+  });
+
+  usuariosLocal.forEach((usuario) => {
+    usuariosPorId.set(usuario.id, usuario);
+  });
+
+  return Array.from(usuariosPorId.values());
+}
+
+function mostrarMensagemAviso(mensagem) {
+  const grid = document.getElementById("adoptersGrid");
+  if (!grid) return;
+
+  grid.innerHTML = `
+    <div class="sem-resultados">
+      <p>${mensagem}</p>
+    </div>
+  `;
+
+  atualizarContador(0);
 }
 
 function atualizarContador(total) {
   const contador = document.querySelector(".results");
 
   if (contador) {
-    contador.textContent = `${total} adotantes encontrados`;
+    contador.textContent = `${total} candidatos encontrados`;
   }
 }
 
@@ -39,7 +117,7 @@ function renderizarAdotantes(lista) {
   if (lista.length === 0) {
     grid.innerHTML = `
       <p class="sem-resultados">
-        Nenhum adotante encontrado.
+        Nenhum candidato encontrado.
       </p>
     `;
 
@@ -62,7 +140,19 @@ function renderizarAdotantes(lista) {
           <h3>${adotante.name}</h3>
 
           <p class="city">
-            📍 ${adotante.cidade}, ${adotante.estado}
+            📍 ${adotante.cidade}${adotante.estado ? ", " + adotante.estado : ""}
+          </p>
+
+          <p class="pet-solicitado">
+            Pet solicitado: <strong>${adotante.petName}</strong>
+          </p>
+
+          <p class="mensagem-candidatura">
+            ${adotante.mensagem}
+          </p>
+
+          <p class="status-candidatura">
+            Status: <span>${adotante.status}</span>
           </p>
 
           <button
@@ -82,23 +172,23 @@ function renderizarAdotantes(lista) {
 }
 
 function abrirPerfil(id) {
+  if (!id) return;
   window.location.href = `perfilAdotante.html?id=${id}`;
 }
 
 function aplicarFiltros() {
-  let filtrados = [...todosAdotantes];
+  let filtrados = [...todosCandidatos];
 
   const idade = document.getElementById("filtroIdade")?.value;
-
   const experiencia = document.getElementById("filtroExperiencia")?.value;
-
   const moradia = document.getElementById("filtroMoradia")?.value;
-
   const cidade =
     document.getElementById("filtroCidade")?.value?.toLowerCase().trim() || "";
 
   if (idade && idade !== "Todas") {
     filtrados = filtrados.filter((adotante) => {
+      if (!adotante.idade) return false;
+
       if (idade === "18 - 25") {
         return adotante.idade >= 18 && adotante.idade <= 25;
       }
@@ -144,6 +234,7 @@ function aplicarFiltros() {
   if (cidade) {
     filtrados = filtrados.filter(
       (adotante) =>
+        adotante.name.toLowerCase().includes(cidade) ||
         adotante.cidade.toLowerCase().includes(cidade) ||
         adotante.estado.toLowerCase().includes(cidade),
     );
@@ -160,11 +251,11 @@ function configurarBusca() {
   campoBusca.addEventListener("input", () => {
     const texto = campoBusca.value.toLowerCase().trim();
 
-    const filtrados = todosAdotantes.filter(
-      (adotante) =>
-        adotante.name.toLowerCase().includes(texto) ||
-        adotante.cidade.toLowerCase().includes(texto) ||
-        adotante.estado.toLowerCase().includes(texto),
+    const filtrados = todosCandidatos.filter((adotante) =>
+      adotante.name.toLowerCase().includes(texto) ||
+      adotante.cidade.toLowerCase().includes(texto) ||
+      adotante.estado.toLowerCase().includes(texto) ||
+      adotante.petName.toLowerCase().includes(texto)
     );
 
     renderizarAdotantes(filtrados);
@@ -187,14 +278,20 @@ function configurarFiltros() {
       cidadeInput.value = "";
     }
 
-    renderizarAdotantes(todosAdotantes);
+    renderizarAdotantes(todosCandidatos);
+  });
+}
+
+function configurarLogout() {
+  document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "telainicial.html";
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   configurarBusca();
-
   configurarFiltros();
-
+  configurarLogout();
   carregarAdotantes();
 });
