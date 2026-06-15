@@ -3,9 +3,19 @@ let todosPets = [];
 document.addEventListener("DOMContentLoaded", () => {
   const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-  if (usuarioLogado?.tipo === "doador") {
-    configurarTelaDoador();
+  configurarLinkPerfil(usuarioLogado);
 
+  const ehDoador =
+    usuarioLogado?.perfil === "doar" ||
+    usuarioLogado?.tipo === "doador";
+
+  document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "telainicial.html";
+  });
+
+  if (ehDoador) {
+    configurarTelaDoador();
     return;
   }
 
@@ -24,7 +34,23 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("select").forEach((select) => {
     select.addEventListener("change", aplicarFiltros);
   });
+
+  document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("usuarioLogado");
+    window.location.href = "telainicial.html";
+  });
 });
+
+function configurarLinkPerfil(usuarioLogado) {
+  const linkPerfil = document.getElementById("menuPerfil");
+  if (!linkPerfil) return;
+
+  const ehDoador =
+    usuarioLogado?.perfil === "doar" ||
+    usuarioLogado?.tipo === "doador";
+
+  linkPerfil.href = ehDoador ? "PerfilDoador.html" : "perfilAdotante.html";
+}
 
 function configurarTelaAdotante() {
   const menuCadastrarPet = document.getElementById("menuCadastrarPet");
