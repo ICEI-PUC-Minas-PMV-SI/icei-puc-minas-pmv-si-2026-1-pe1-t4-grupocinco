@@ -52,6 +52,19 @@
   color: var(--laranja);
 }
 
+.user img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.user img:hover {
+    transform: scale(1.08);
+}
+
 
 
 body {
@@ -83,6 +96,7 @@ body {
     min-height: 350px;
     display: flex;
     flex-wrap: nowrap;
+    align-items: flex-start;
     position: relative;
 }
 
@@ -112,23 +126,78 @@ body {
     background-color: #dbd2ce;
 }
 
-.foto {
-    width: 250px;
-    object-fit: cover; 
-    border-radius: 8px 0px 0px 8px;
-}
-
 .foto-container {
     position: relative;
 
     width: 250px;
     min-width: 250px;
+    max-height: 360px;
 
     height: auto;
+    align-self: flex-start;
 
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
 
     overflow: hidden;
+}
+
+.foto {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px 0px 0px 8px;
+    background: rgba(245, 245, 244, 0.9);
+}
+
+.photo-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.photo-btn {
+    pointer-events: auto;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--preto);
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.photo-btn:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 1);
+}
+
+.btn-inspecionar {
+    margin: 12px;
+    padding: 10px 14px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--branco);
+    background: var(--laranja);
+    border-radius: 8px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.btn-inspecionar:hover {
+    background: #d9640f;
 }
 
 .overlay-foto {
@@ -181,6 +250,40 @@ body {
 .localizacao {
     color: #38404d;
     margin-bottom: 22px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    border: 1px solid var(--laranja);
+    background: transparent;
+    color: var(--laranja);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--laranja);
+    color: var(--branco);
+}
+
+.btn-secondary.favoritado {
+    background: var(--laranja);
+    color: var(--branco);
+}
+
+.btn-secondary.disabled,
+.btn-primary.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .text {
@@ -366,7 +469,35 @@ select.campo-edicao {
 }
 
 #inputFoto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
     display: none;
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 0;
+    background: transparent;
+    border: 1px solid var(--laranja);
+    color: var(--laranja);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: var(--laranja);
+    color: var(--branco);
 }
            
 .campo-edicao-area {
