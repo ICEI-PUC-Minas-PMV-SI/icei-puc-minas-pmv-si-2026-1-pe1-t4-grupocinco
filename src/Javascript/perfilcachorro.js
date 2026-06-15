@@ -350,7 +350,7 @@ function atualizarStatusCandidatura(pet) {
       ? "Reprovado"
       : "Em análise";
 
-  statusEl.textContent = statusTexto;
+  statusEl.textContent = `Status da candidatura: ${statusTexto}`;
 
   if (btnAdotar) {
     btnAdotar.disabled = true;

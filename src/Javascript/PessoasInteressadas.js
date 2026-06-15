@@ -31,6 +31,16 @@ async function carregarAdotantes() {
       (usuario) => usuario.tipo === "adotante"
     );
 
+    const petsJson = dados.pets || [];
+    const petsLocal = JSON.parse(localStorage.getItem("pets")) || [];
+    const petsMap = new Map();
+
+    [...petsJson, ...petsLocal].forEach((pet) => {
+      if (pet?.id) {
+        petsMap.set(pet.id, pet);
+      }
+    });
+
     const candidaturas =
       JSON.parse(localStorage.getItem("candidaturas")) || [];
 
@@ -40,6 +50,15 @@ async function carregarAdotantes() {
         const adotante = usuariosSistema.find(
           (usuario) => usuario.id === candidatura.candidatoId
         );
+        const pet = petsMap.get(candidatura.petId);
+
+        const statusMap = {
+          pendente: "Em análise",
+          aprovado: "Aprovado",
+          reprovado: "Reprovado",
+        };
+
+        const statusAtual = candidatura.status || "pendente";
 
         return {
           id: candidatura.candidatoId,
@@ -52,9 +71,12 @@ async function carregarAdotantes() {
           idade: adotante?.idade || null,
           experiencias: adotante?.experiencias || [],
           moradia: adotante?.moradia || {},
-          petName: candidatura.petName || "Pet",
-          mensagem: candidatura.mensagem || "Sem mensagem",
-          status: candidatura.status || "pendente",
+          petId: candidatura.petId,
+          petName: pet?.petname || candidatura.petName || "Pet",
+          mensagem:
+            candidatura.mensagem ||
+            `${candidatura.candidatoName || "Um interessado"} enviou uma candidatura para ${pet?.petname || candidatura.petName || "este pet"}.`,
+          status: statusMap[statusAtual] || "Em análise",
           timestamp: candidatura.timestamp || "",
         };
       });
@@ -157,7 +179,7 @@ function renderizarAdotantes(lista) {
 
           <button
             class="outline-btn"
-            onclick="abrirPerfil('${adotante.id}')"
+            onclick="abrirPerfil('${adotante.id}', '${adotante.petId}')"
           >
             Ver Perfil
           </button>
@@ -171,9 +193,12 @@ function renderizarAdotantes(lista) {
   atualizarContador(lista.length);
 }
 
-function abrirPerfil(id) {
+function abrirPerfil(id, petId) {
   if (!id) return;
-  window.location.href = `perfilAdotante.html?id=${id}`;
+  const params = new URLSearchParams();
+  params.set("id", id);
+  if (petId) params.set("petId", petId);
+  window.location.href = `perfilAdotante.html?${params.toString()}`;
 }
 
 function aplicarFiltros() {
@@ -294,4 +319,10 @@ document.addEventListener("DOMContentLoaded", () => {
   configurarFiltros();
   configurarLogout();
   carregarAdotantes();
+});
+
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    window.location.reload();
+  }
 });

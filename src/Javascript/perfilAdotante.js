@@ -1,4 +1,6 @@
 let usuarioAtual = null;
+let usuarioLogadoSessao = null;
+let perfilExibidoAtual = null;
 let dadosSistema = null;
 let modoEdicao = false;
 
@@ -63,6 +65,8 @@ async function iniciarPagina() {
             return;
         }
 
+        usuarioLogadoSessao = usuarioLogado;
+
         // Se veio do script.js (login novo), copia o perfil e o tipo
         if (usuarioSessao && usuarioSessao.perfil) {
             usuarioLogado.tipo = usuarioSessao.perfil === "adotar" ? "adotante" : "doador";
@@ -76,6 +80,7 @@ async function iniciarPagina() {
         const idPerfil =
             parametros.get("id") ||
             idUsuarioLogado;
+        const petIdUrl = parametros.get("petId");
 
         const perfilExibido =
             usuariosSistema.find(
@@ -93,6 +98,7 @@ async function iniciarPagina() {
         }
 
         usuarioAtual = perfilExibido;
+        perfilExibidoAtual = perfilExibido;
 
         const perfilSalvo =
             localStorage.getItem(
@@ -118,7 +124,8 @@ async function iniciarPagina() {
 
         preencherPerfil(
             perfilExibido,
-            dados
+            dados,
+            petIdUrl
         );
 
         atualizarAvatarHeader(usuarioLogado);
@@ -130,7 +137,8 @@ async function iniciarPagina() {
 
         configurarEventos(
             usuarioLogado,
-            perfilExibido
+            perfilExibido,
+            petIdUrl
         );
         configurarTrocaFoto();
         configurarLogout();
@@ -145,7 +153,7 @@ async function iniciarPagina() {
     }
 }
 
-function preencherPerfil(usuario, dados) {
+function preencherPerfil(usuario, dados, petIdUrl) {
 
     const foto =
         document.getElementById(
@@ -224,19 +232,14 @@ function preencherPerfil(usuario, dados) {
         "estVida"
     );
 
-    let pet =
-        dados.pets.find(
-            pet =>
-                pet.id ===
-                usuario.petInteresse
-        );
+    let pet = petIdUrl
+        ? obterPetPorId(petIdUrl)
+        : obterPetPorId(usuario.petInteresse);
 
-    const candidatura = obterCandidaturaParaPerfil(usuario.id, pet?.id);
+    const candidatura = obterCandidaturaParaPerfil(usuario.id, pet?.id || petIdUrl);
 
     if (!pet && candidatura) {
-        pet = dados.pets.find(
-            (pet) => pet.id === candidatura.petId
-        );
+        pet = obterPetPorId(candidatura.petId);
     }
 
     const nomePet =
@@ -249,7 +252,7 @@ function preencherPerfil(usuario, dados) {
         nomePet
     );
 
-    atualizarStatusPerfil(usuario.id, pet?.id);
+    atualizarStatusPerfil(usuario.id, pet?.id || petIdUrl);
 }
 
 function obterCandidaturaPorCandidato(candidatoId) {
@@ -396,7 +399,8 @@ function controlarPermissoes(
 
 function configurarEventos(
     usuarioLogado,
-    perfilExibido
+    perfilExibido,
+    petIdUrl
 ) {
 
     const btnEditar =
@@ -425,173 +429,94 @@ function configurarEventos(
         );
     }
 
-    document
-        .getElementById(
-            "btn-aprovado"
-        )
-        ?.addEventListener(
-            "click",
-            () => {
+    const btnAprovado = document.getElementById("btn-aprovado");
+    const btnReprovado = document.getElementById("btn-reprovado");
 
-                const nomeAdotante =
-                    perfilExibido.name;
+    if (btnAprovado) {
+        btnAprovado.addEventListener("click", () => {
+            const nomeAdotante = perfilExibido.name;
+            let pet = petIdUrl
+                ? obterPetPorId(petIdUrl)
+                : obterPetPorId(perfilExibido.petInteresse);
 
-                let pet =
-                    dados.pets.find(
-                        p =>
-                            p.id ===
-                            perfilExibido.petInteresse
-                    );
+            const candidatura = obterCandidaturaParaPerfil(perfilExibido.id, petIdUrl || pet?.id);
 
-                const candidatura =
-                    obterCandidaturaParaPerfil(
-                        perfilExibido.id
-                    );
-
-                if (!pet && candidatura) {
-                    pet = dados.pets.find(
-                        (p) => p.id === candidatura.petId
-                    );
-                }
-
-                const petId =
-                    candidatura?.petId ||
-                    pet?.id;
-
-                const nomePet =
-                    pet?.petname ||
-                    candidatura?.petName ||
-                    "o pet";
-
-                atualizarStatusCandidatura(
-                    perfilExibido.id,
-                    petId,
-                    "aprovado"
-                );
-
-                atualizarStatusPerfil(
-                    perfilExibido.id,
-                    petId
-                );
-
-                mostrarPopupResultado(
-                    "Aprovado",
-                    `A candidatura de ${nomeAdotante} para ${nomePet} foi aprovada.`,
-                    () => {
-                        const mensagem =
-                            encodeURIComponent(
-                                `Parabéns, ${nomeAdotante}!! Você acabou de ser aprovado para a adoção do ${nomePet}. Deseja continuar com a adoção?`
-                            );
-
-                        window.location.href =
-                            `mensagens.html?contato=${encodeURIComponent(nomeAdotante)}&msg=${mensagem}`;
-                    }
-                );
+            if (!pet && candidatura) {
+                pet = obterPetPorId(candidatura.petId);
             }
-        );
 
-    document
-        .getElementById(
-            "btn-reprovado"
-        )
-        ?.addEventListener(
-            "click",
-            () => {
+            const petId = candidatura?.petId || pet?.id || petIdUrl || perfilExibido.petInteresse;
+            const nomePet = pet?.petname || candidatura?.petName || "o pet";
 
-                const nomeAdotante =
-                    perfilExibido.name;
+            const atualizado = atualizarStatusCandidatura(
+                perfilExibido.id,
+                petId,
+                "aprovado"
+            );
 
-                let pet =
-                    dados.pets.find(
-                        p =>
-                            p.id ===
-                            perfilExibido.petInteresse
-                    );
-
-                const candidatura =
-                    obterCandidaturaParaPerfil(
-                        perfilExibido.id
-                    );
-
-                if (!pet && candidatura) {
-                    pet = dados.pets.find(
-                        (p) => p.id === candidatura.petId
-                    );
-                }
-
-                const petId =
-                    candidatura?.petId ||
-                    pet?.id;
-
-                const nomePet =
-                    pet?.petname ||
-                    candidatura?.petName ||
-                    "o pet";
-
-                // Remove petInteresse do perfil editado
-                const perfilSalvo =
-                    localStorage.getItem(
-                        "perfilEditado"
-                    );
-
-                if (perfilSalvo) {
-
-                    const editado =
-                        JSON.parse(
-                            perfilSalvo
-                        );
-
-                    if (
-                        editado.id ===
-                        perfilExibido.id
-                    ) {
-
-                        delete editado.petInteresse;
-
-                        perfilExibido.petInteresse =
-                            undefined;
-
-                        localStorage.setItem(
-                            "perfilEditado",
-                            JSON.stringify(
-                                editado
-                            )
-                        );
-
-                        // Atualiza a tela
-                        alterarTexto(
-                            "nomePet",
-                            "Nenhum"
-                        );
-                    }
-                }
-
-                atualizarStatusCandidatura(
-                    perfilExibido.id,
-                    petId,
-                    "reprovado"
-                );
-
-                atualizarStatusPerfil(
-                    perfilExibido.id,
-                    petId
-                );
-
-                mostrarPopupResultado(
-                    "Reprovado",
-                    `A candidatura de ${nomeAdotante} para ${nomePet} foi reprovada.`,
-                    () => {
-                        const mensagem =
-                            encodeURIComponent(
-                                `Poxa, ${nomeAdotante}, seu perfil foi analisado e você não se enquadra para a adoção do ${nomePet}.`
-                            );
-
-                        window.location.href =
-                            `mensagens.html?contato=${encodeURIComponent(nomeAdotante)}&msg=${mensagem}`;
-                    }
-                );
+            if (atualizado) {
+                atualizarStatusPerfil(perfilExibido.id, petId);
             }
-        );
+
+            mostrarPopupResultado(
+                "Aprovado",
+                `A candidatura de ${nomeAdotante} para ${nomePet} foi aprovada.`,
+                () => {
+                    window.location.href =
+                        `PessoasInteressadas.html`;
+                }
+            );
+        });
+    }
+
+    if (btnReprovado) {
+        btnReprovado.addEventListener("click", () => {
+            const nomeAdotante = perfilExibido.name;
+            let pet = petIdUrl
+                ? obterPetPorId(petIdUrl)
+                : obterPetPorId(perfilExibido.petInteresse);
+
+            const candidatura = obterCandidaturaParaPerfil(perfilExibido.id, petIdUrl || pet?.id);
+
+            if (!pet && candidatura) {
+                pet = obterPetPorId(candidatura.petId);
+            }
+
+            const petId = candidatura?.petId || pet?.id || petIdUrl || perfilExibido.petInteresse;
+            const nomePet = pet?.petname || candidatura?.petName || "o pet";
+
+            const perfilSalvo = localStorage.getItem("perfilEditado");
+
+            if (perfilSalvo) {
+                const editado = JSON.parse(perfilSalvo);
+                if (editado.id === perfilExibido.id) {
+                    delete editado.petInteresse;
+                    perfilExibido.petInteresse = undefined;
+                    localStorage.setItem("perfilEditado", JSON.stringify(editado));
+                    alterarTexto("nomePet", "Nenhum");
+                }
+            }
+
+            const atualizado = atualizarStatusCandidatura(
+                perfilExibido.id,
+                petId,
+                "reprovado"
+            );
+
+            if (atualizado) {
+                atualizarStatusPerfil(perfilExibido.id, petId);
+            }
+
+            mostrarPopupResultado(
+                "Reprovado",
+                `A candidatura de ${nomeAdotante} para ${nomePet} foi reprovada.`,
+                () => {
+                    window.location.href =
+                        `PessoasInteressadas.html`;
+                }
+            );
+        });
+    }
 }
 
 function mostrarPopupResultado(titulo, mensagem, onConfirm) {
@@ -635,7 +560,15 @@ function atualizarStatusCandidatura(candidatoId, petId, status) {
         petId = fallback?.petId;
     }
 
-    if (!candidatoId || !petId) return;
+    if (!candidatoId) return false;
+
+    if (!petId) {
+        petId = perfilExibidoAtual?.petInteresse || candidaturas.find(
+            (cand) => cand.candidatoId === candidatoId
+        )?.petId;
+    }
+
+    if (!petId) return false;
 
     const indice = candidaturas.findIndex(
         (cand) =>
@@ -647,19 +580,22 @@ function atualizarStatusCandidatura(candidatoId, petId, status) {
         candidaturas[indice].status = status;
         candidaturas[indice].timestamp = new Date().toISOString();
     } else {
-        const pet =
-            dadosSistema?.pets.find(
-                (p) => p.id === petId
-            );
+        const pet = obterPetPorId(petId);
+
+        const doadorId = usuarioLogadoSessao?.id || "";
+        const candidatoName =
+            perfilExibidoAtual?.name || "Adotante";
+        const candidatoFoto =
+            perfilExibidoAtual?.fotoPerfil || "";
 
         candidaturas.push({
             id: `cand_${Date.now()}`,
             petId,
             petName: pet?.petname || "Pet",
-            doadorId: usuarioAtual?.id || "",
+            doadorId,
             candidatoId,
-            candidatoName: perfilExibido.name || "Adotante",
-            candidatoFoto: perfilExibido.fotoPerfil || "",
+            candidatoName,
+            candidatoFoto,
             status,
             timestamp: new Date().toISOString(),
             mensagem:
@@ -673,6 +609,8 @@ function atualizarStatusCandidatura(candidatoId, petId, status) {
         "candidaturas",
         JSON.stringify(candidaturas)
     );
+
+    return true;
 }
 
 function configurarTrocaFoto() {
@@ -998,6 +936,25 @@ function salvarPerfil() {
 
     salvarUsuarioLocalStorage(usuarioAtual);
 
+    const sessaoRaw = localStorage.getItem("usuarioLogado");
+    if (sessaoRaw) {
+        try {
+            const sessaoAtual = JSON.parse(sessaoRaw);
+            const sessaoAtualizada = {
+                ...sessaoAtual,
+                name: usuarioAtual.name || sessaoAtual.name,
+                fotoPerfil: usuarioAtual.fotoPerfil || sessaoAtual.fotoPerfil,
+            };
+            localStorage.setItem(
+                "usuarioLogado",
+                JSON.stringify(sessaoAtualizada)
+            );
+            usuarioLogadoSessao = sessaoAtualizada;
+        } catch {
+            // ignore invalid session format
+        }
+    }
+
     localStorage.setItem(
         "perfilEditado",
         JSON.stringify(usuarioAtual)
@@ -1086,6 +1043,22 @@ function obterUsuariosSistema(dados) {
     });
 
     return Array.from(usuariosPorId.values());
+}
+
+function obterPetPorId(petId) {
+    if (!petId) return null;
+
+    const petsJson = dadosSistema?.pets || [];
+    const petsLocal = JSON.parse(localStorage.getItem("pets")) || [];
+    const petsPorId = new Map();
+
+    [...petsJson, ...petsLocal].forEach(pet => {
+        if (pet?.id) {
+            petsPorId.set(pet.id, pet);
+        }
+    });
+
+    return petsPorId.get(petId) || null;
 }
 
 function alterarTexto(

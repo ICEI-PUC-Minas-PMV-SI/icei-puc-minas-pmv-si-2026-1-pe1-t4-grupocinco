@@ -209,6 +209,20 @@ function registrarPet(event) {
             };
 
             localStorage.setItem("pets", JSON.stringify(pets));
+
+            const candidaturas = JSON.parse(localStorage.getItem("candidaturas")) || [];
+            const candidaturasAtualizadas = candidaturas.map((candidatura) => {
+                if (candidatura.petId === petIdEmEdicao) {
+                    return {
+                        ...candidatura,
+                        petName: petname,
+                        mensagem: `${candidatura.candidatoName || "Um interessado"} enviou uma candidatura para ${petname || "este pet"}.`
+                    };
+                }
+                return candidatura;
+            });
+            localStorage.setItem("candidaturas", JSON.stringify(candidaturasAtualizadas));
+
             alert("Pet atualizado com sucesso!");
             window.location.href = `HistoricoPetEAtivo.html?userId=${usuarioLogado.id}&em_adocao=true`;
             return;

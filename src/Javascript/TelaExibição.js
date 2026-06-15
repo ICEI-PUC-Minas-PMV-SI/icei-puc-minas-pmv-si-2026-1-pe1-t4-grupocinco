@@ -17,12 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (ehDoador) {
     configurarTelaDoador();
-    return;
+    carregarPets(true);
+  } else {
+    configurarTelaAdotante();
+    carregarPets();
   }
-
-  configurarTelaAdotante();
-
-  carregarPets();
 
   document
     .getElementById("clearFilters")
@@ -84,58 +83,23 @@ function configurarTelaDoador() {
   const menuPets = document.getElementById("menuPets");
 
   if (menuPets) {
-    menuPets.style.display = "none";
+    menuPets.style.display = "inline";
   }
 
   const searchArea = document.querySelector(".search-area");
 
   if (searchArea) {
-    searchArea.style.display = "none";
+    searchArea.style.display = "block";
   }
 
   const sidebar = document.querySelector(".sidebar");
 
   if (sidebar) {
-    sidebar.style.display = "none";
+    sidebar.style.display = "block";
   }
-
-  const content = document.querySelector(".content");
-
-  content.innerHTML = `
-
-    <div class="painel-doador">
-
-      <h1>Painel do Doador</h1>
-
-      <p>
-        Você está logado como doador.
-      </p>
-
-      <p>
-        Como doador você pode:
-      </p>
-
-      <ul style="text-align:left; max-width:500px; margin:20px auto;">
-        <li>Cadastrar pets</li>
-        <li>Editar pets cadastrados</li>
-        <li>Visualizar candidatos</li>
-        <li>Aprovar ou rejeitar candidaturas</li>
-        <li>Editar seu perfil</li>
-      </ul>
-
-      <a
-        href="cadastropet.html"
-        class="btn-doador"
-      >
-        Cadastrar Pet
-      </a>
-
-    </div>
-
-  `;
 }
 
-async function carregarPets() {
+async function carregarPets(apenasDoUsuario = false) {
   try {
     const response = await fetch("../Javascript/data.json");
     const dados = await response.json();
@@ -154,6 +118,26 @@ async function carregarPets() {
     });
 
     todosPets = Array.from(petsMap.values());
+
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const ehDoador =
+      usuarioLogado?.perfil === "doar" ||
+      usuarioLogado?.tipo === "doador";
+
+    const candidaturas =
+      JSON.parse(localStorage.getItem("candidaturas")) || [];
+
+    todosPets = todosPets.filter((pet) => {
+      const candidaturasDoPet = candidaturas.filter(
+        (candidatura) => candidatura.petId === pet.id
+      );
+
+      return !candidaturasDoPet.some((c) => c.status === "aprovado");
+    });
+
+    if (apenasDoUsuario && usuarioLogado?.id) {
+      todosPets = todosPets.filter((pet) => pet.userId === usuarioLogado.id);
+    }
 
     renderizarPets(todosPets);
     atualizarContador(todosPets.length);

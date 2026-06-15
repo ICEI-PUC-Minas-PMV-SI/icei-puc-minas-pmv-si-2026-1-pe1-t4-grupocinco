@@ -3,9 +3,9 @@ function montarHeaderDoador() {
     <div class="logo">🐾 LarCerto</div>
 
     <nav class="nav">
-      <a href="TelaExibição.html">Início</a>
+      <a href="telainicial.html">Início</a>
       <a href="PessoasInteressadas.html">Interessados</a>
-      <a href="TelaExibição.html">Pets</a>
+      <a href="TelaExibição.html">Painel Doador</a>
       <a href="mensagens.html" id="nav-mensagens" class="active">Mensagens</a>
       <a href="PerfilDoador.html">Perfil</a>
     </nav>
@@ -47,19 +47,20 @@ function montarHeaderAdotante() {
   `;
 }
 
-function configurarHeaderMensagens() {
+async function configurarHeaderMensagens() {
   const header = document.getElementById("pageHeader");
   if (!header) return;
 
   const sessaoRaw = localStorage.getItem("usuarioLogado");
   let perfil = null;
   let tipo = null;
+  let usuarioLogado = null;
 
   if (sessaoRaw) {
     try {
-      const sessao = JSON.parse(sessaoRaw);
-      perfil = sessao.perfil;
-      tipo = sessao.tipo;
+      usuarioLogado = JSON.parse(sessaoRaw);
+      perfil = usuarioLogado.perfil;
+      tipo = usuarioLogado.tipo;
     } catch {
       perfil = null;
       tipo = null;
@@ -71,10 +72,48 @@ function configurarHeaderMensagens() {
   header.className = ehDoador ? "header header-doador" : "header header-adotante";
   header.innerHTML = ehDoador ? montarHeaderDoador() : montarHeaderAdotante();
 
+  const usuarioCompleto = await carregarUsuarioCompleto(usuarioLogado);
+  const avatarImg = document.querySelector(".user img");
+  if (avatarImg && usuarioCompleto?.fotoPerfil) {
+    avatarImg.src = usuarioCompleto.fotoPerfil;
+    avatarImg.alt = usuarioCompleto.name || "Usuário";
+  }
+
   document.getElementById("logoutBtn")?.addEventListener("click", () => {
     localStorage.removeItem("usuarioLogado");
     window.location.href = "telainicial.html";
   });
 }
 
-document.addEventListener("DOMContentLoaded", configurarHeaderMensagens);
+document.addEventListener("DOMContentLoaded", async () => {
+  await configurarHeaderMensagens();
+});
+
+async function carregarUsuarioCompleto(sessao) {
+  if (!sessao || !sessao.id) return sessao;
+  if (sessao.fotoPerfil && sessao.name) return sessao;
+
+  const perfilEditado = JSON.parse(localStorage.getItem("perfilEditado")) || null;
+  if (perfilEditado?.id === sessao.id) {
+    return { ...sessao, ...perfilEditado };
+  }
+
+  const usuariosLocal = JSON.parse(localStorage.getItem("usuarios")) || [];
+  const usuarioLocal = usuariosLocal.find((u) => u.id === sessao.id);
+  if (usuarioLocal) {
+    return { ...sessao, ...usuarioLocal };
+  }
+
+  try {
+    const resposta = await fetch("../Javascript/data.json");
+    const dados = await resposta.json();
+    const usuarioData = (dados.usuarios || []).find((u) => u.id === sessao.id);
+    if (usuarioData) {
+      return { ...sessao, ...usuarioData };
+    }
+  } catch (erro) {
+    console.error("Erro ao carregar usuário completo:", erro);
+  }
+
+  return sessao;
+}
