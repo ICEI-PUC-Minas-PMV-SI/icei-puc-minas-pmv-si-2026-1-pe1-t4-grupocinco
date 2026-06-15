@@ -13,17 +13,25 @@
 <body>
 
 <header class="header">
+  <div class="logo">🐾 LarCerto</div>
 
-    <div class="logo">🐾 LarCerto</div>
+  <nav class="nav">
+    <a href="../HTML/telainicial.html">Início</a>
+    <a href="../HTML/TelaExibição.html">Pets</a>
+    <a href="../HTML/favoritos.html">Favoritos</a>
+    <a href="../HTML/mensagens.html">Mensagens</a>
+    <a href="../HTML/cadastropet.html" id="menuCadastrarPet" style="display: none">Cadastrar Pet</a>
+    <a href="../HTML/PerfilDoador.html" class="active">Perfil</a>
+  </nav>
 
-    <nav class="nav">
-        <a href="../HTML/telainicial.html">Início</a>
-        <a href="../HTML/PessoasInteressadas.html">Adotantes</a>
-        <a href="../HTML/favoritos.html">Favoritos</a>
-        <a href="../HTML/mensagens.html">Mensagens</a>
-        <a href="../HTML/perfilAdotante.html" class="active">Perfil</a>
-    </nav>
+  <button id="logoutBtn" class="login-btn">Sair</button>
 
+  <div class="user">
+    <img
+      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+      alt="Usuário"
+    />
+  </div>
 </header>
 
 <main class="container">
@@ -59,21 +67,22 @@
                 src=""
                 alt="Foto do Perfil">
 
-            <div
+            <label
+                for="inputFoto"
                 class="overlay-foto"
                 id="overlayFoto">
 
                 <i class="fa-solid fa-camera"></i>
                 Alterar Foto
 
-            </div>
+            </label>
+
+            <input
+                type="file"
+                id="inputFoto"
+                accept="image/*">
 
         </div>
-
-        <input
-            type="file"
-            id="inputFoto"
-            accept="image/*">
 
         <div class="informacao">
 
@@ -125,6 +134,10 @@
                     Carregando...
                 </span>
             </h3>
+
+            <p id="statusCandidatura" class="status-candidatura">
+                Status da candidatura: carregando...
+            </p>
 
             <div
                 class="doador"

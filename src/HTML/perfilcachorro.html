@@ -1,88 +1,146 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="src/CSS/perfilcachorro.css"> 
-        <title>LarCerto - Perfil da Amora</title>
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/perfilAdotante.css">
+    <title>LarCerto - Perfil da Amora</title>
+</head>
 <body>
-    <header class="main-header">
-        <div class="main-header__logo">LarCerto </div>
-        <nav class="main-nav">
-<a  class="btn btn-primary" role="button">Início
-</a><button id="btnPets" class="btn btn-primary" role="button">pets</button>
-<button id="btnFavoritos" class="btn btn-primary" role="button">favoritos</button>
-<button id="btnMensagens" class="btn btn-primary" role="button">mensagens</button>
-<button id="btnPerfil" class="btn btn-primary" role="button">perfil</button>
-                 <link href="" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        </nav>
-    </header>
-    <main class="profile">
-        <article class="profile__card">
-            <h1 class="profile__title">Perfil do Pet</h1>
+<header class="header">
+  <div class="logo">🐾 LarCerto</div>
+  <nav class="nav">
+    <a href="telainicial.html">Início</a>
+    <a href="TelaExibição.html">Pets</a>
+    <a href="favoritos.html">Favoritos</a>
+    <a href="mensagens.html">Mensagens</a>
+    <a href="perfilAdotante.html">Perfil</a>
+  </nav>
+</header>
 
-            <img class="profile__image" 
-                 src="https://i.pinimg.com/1200x/2b/85/24/2b8524adbdb7167142b7e05e2309f6d0.jpg"  width="700" height="600" alt="descriçao profile__image"> 
+<main class="container">
+    <div class="caixa caixa-cima">
+        <div class="foto-container">
+            <img id="petImage" class="foto" src="https://i.pinimg.com/1200x/2b/85/24/2b8524adbdb7167142b7e05e2309f6d0.jpg" alt="Pet" />
 
-            <div class="profile__info">
-                <h2 class="profile__name">Amora</h2>
-                <p class="profile__description">
-                            <div>Vira Lata</div>
-               <p></p>
-                <div class="container">
-  <div class="caixa">5 anos</div>
-  <div class="caixa">Porte Médio</div>
-  <div class="caixa">Femea</div>
-  <div class="caixa">Rio de Janeiro</div>
-</div>
-                <p>Sobre amora:</p> 
-                <p>Amora é uma cachorrinha adorável, cheia de energia e amor para dar.<br>
-                     Ela adora brincar no parque, correr atrás de bolinhas e receber carinho.<br>
-                     È muito sociável e se dá bem com outros cães e pessoas. <br>                                                                                                                                                        
-                    Está procurando um lar amoroso onde possa ser parte da família e receber todo o amor que merece.</p>
-               <container>vacinada<p>
-                castrada</p>
-               </container>
-                <button id="btnFavoritar" class="btn btn-primary" type="button">Favoritar</button>
+            <div class="photo-nav">
+                <button id="prevPhoto" class="photo-btn" type="button">‹</button>
+                <button id="nextPhoto" class="photo-btn" type="button">›</button>
             </div>
-        </article>
-    </main>
-    <footer class="main-footer">
-        <div class="footer-cols">
-            <div class="footer-col">
-                <h4>Sobre</h4>
-                <a class="btn btn-primary" role="button">Quem Somos </a>
-                <a class="btn btn-primary" role="button">Nossa Missão</a>
-                <a class="btn btn-primary" role="button">Contato</a>
+
+            <a id="inspectPhoto" class="btn-inspecionar" href="#" target="_blank" rel="noopener noreferrer">Inspecionar foto</a>
+        </div>
+
+        <div class="informacao">
+            <div id="petName" class="nome">Amora</div>
+
+            <div class="infoTI">
+                <p>
+                    <i class="fa-solid fa-paw"></i>
+                    <span id="petBreed">Vira Lata</span>
+                </p>
+                <p>
+                    <i class="fa-regular fa-calendar"></i>
+                    <span id="petAge">5 anos</span>
+                </p>
             </div>
-            <div class="footer-col">
-                <h4>Ações</h4>
-                <a id="btnQueroAdotar" class="btn btn-primary" role="button">Quero Adotar</a>
-                <a id="btnQueroDoar" class="btn btn-primary" role="button">Quero Doar</a>
-                <a class="btn btn-primary" role="button">Denunciar</a>
+
+            <p class="localizacao">
+                <i class="fa-solid fa-location-dot"></i>
+                <span id="petLocation">Localização não informada</span>
+            </p>
+
+            <div class="action-buttons">
+                <button id="btnFavorito" type="button" class="btn-secondary">Favoritar</button>
+                <button id="btnAdotar" type="button" class="btn-primary">Adotar</button>
             </div>
-            <div class="footer-col">
-                <h4>Suporte</h4>
-                <a class="btn btn-primary" role="button">FAQ</a>
-                <a class="btn btn-primary" role="button">Privacidade</a>
-                <a class="btn btn-primary" role="button">Termos de Uso</a>
+
+            <div class="status-area">
+                <h4 class="caixa-rotulo">Status da candidatura:</h4>
+                <p id="candidacyStatus" class="resposta-rotulo">Nenhuma candidatura enviada</p>
             </div>
-            <div class="footer-col">
-                <h4>Redes Sociais</h4>
-                <div class="social-icons">
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-twitter"></i>
-                </div>
-                <button class="btn-register">Registrar Agora</button>
+
+            <h3 id="aboutTitle">Sobre o pet:</h3>
+            <p id="petDescription" class="text">
+                Amora é uma cachorrinha adorável, cheia de energia e amor para dar.
+                Ela adora brincar no parque, correr atrás de bolinhas e receber carinho.
+                É muito sociável e se dá bem com outros cães e pessoas.
+                Está procurando um lar amoroso onde possa ser parte da família e receber todo o amor que merece.
+            </p>
+
+            <div id="petAttributes" class="doador">
+                <button type="button" class="btn-primary">Fêmea</button>
+                <button type="button" class="btn-primary">Porte Médio</button>
+                <button type="button" class="btn-primary">Vacinada</button>
+                <button type="button" class="btn-primary">Castrada</button>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 LarCerto - Rede Social de Adoção de Cães. Todos os direitos reservados.
-        </div>
-    </footer>
+    </div>
 
-    <script src=".js"></script>
+    <div class="caixa">
+        <div class="info">
+            <h3 class="caixa-titulo">
+                <i class="fa-solid fa-heart"></i>
+                Detalhes da Adoção
+            </h3>
+            <h4 class="caixa-rotulo">Disponibilidade:</h4>
+            <p id="petAvailability" class="resposta-rotulo">Imediata</p>
+
+            <h4 class="caixa-rotulo">Perfil ideal de família:</h4>
+            <p id="petFamilyProfile" class="resposta-rotulo">Família ativa e carinhosa</p>
+        </div>
+    </div>
+
+    <div class="caixa">
+        <div class="info">
+            <h3 class="caixa-titulo">
+                <i class="fa-solid fa-bone"></i>
+                Preferências
+            </h3>
+            <div id="petPreferences" class="tag">Gosta de brincar</div>
+        </div>
+    </div>
+
+    <div class="caixa">
+        <div class="info">
+            <h3 class="caixa-titulo">
+                <i class="fa-solid fa-house"></i>
+                Ideal para
+            </h3>
+            <p id="petIdeal" class="text">Ambientes com espaço para passeios e atenção diária.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div>
+        <h3>AdotaPet</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+    </div>
+    <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+    </div>
+    <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+    </div>
+    <div>
+        <h3>Fique por dentro</h3>
+        <p>Receba novidades sobre adoção.</p>
+        <div class="newsletter">
+            <input type="email" placeholder="Seu e-mail" />
+            <button>Inscrever</button>
+        </div>
+    </div>
+</footer>
+<script src="../Javascript/perfilcachorro.js" defer></script>
 </body>
 </html>

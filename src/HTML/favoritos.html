@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LarCerto - Favoritos</title>
-    <link rel="stylesheet" href="../style.css"> 
-</head>
-<body>
 
-    <header>
-      <div class="logo-nav">🐾 LarCerto</div>
-        <nav>
-            <ul>
-                <nav>
-    <ul>
-        <li><a href="telainicial.html" id="nav-inicio">Início</a></li>
-        <li><a href="PessoasInteressadas.html" id="nav-adotantes">Adotantes</a></li>
-        <li><a href="favoritos.html" id="nav-favoritos"class="active">Favoritos</a></li>
-        <li><a href="mensagens.html" id="nav-mensagens">Mensagens</a></li>
-        <li><a href="PerfilDoador.html" id="nav-perfil">Perfil</a></li>
-    </ul>
-</nav>
-            </ul> </nav>
+    <link rel="stylesheet" href="../CSS/TelaExibiçao.css" />
+    <link rel="stylesheet" href="../CSS/mensagensfavoritos.css" />
+    <script src="../Javascript/favoritos.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">🐾 LarCerto</div>
+
+      <nav class="nav">
+        <a href="telainicial.html">Início</a>
+        <a id="menuPets" href="TelaExibição.html">Pets</a>
+        <a id="menuFavoritos" href="favoritos.html" class="active">Favoritos</a>
+        <a id="menuMensagens" href="mensagens.html">Mensagens</a>
+        <a id="menuCadastrarPet" href="cadastropet.html" style="display: none">Cadastrar Pet</a>
+        <a id="menuPerfil" href="PerfilDoador.html">Perfil</a>
+      </nav>
+
+      <button id="logoutBtn" class="login-btn">Sair</button>
+
+      <div class="user">
+        <img
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+          alt="Usuário"
+        />
+      </div>
     </header>
 
     <main class="main-container">
@@ -28,91 +38,7 @@
         <p class="subtitle">Os pets que encantaram seu coração.</p>
         <div class="title-bar"></div>
 
-        <div class="favorites-grid">
-            <div class="card">
-                <img src="poodle.webp" alt="Rebeca">
-                <div class="card-content">
-                    <h3 class="pet-name">Rebeca</h3>
-                    <p><strong>Raça:</strong> Poodle</p>
-                    <p><strong>Idade:</strong> 2 anos</p>
-                    <p><strong>Local:</strong> São Paulo - SP</p>
-                    <div class="card-footer">
-                        <span class="heart-icon">❤️</span>
-                       <a href="perfilcachorro.html"><button class="btn-perfil">Ver Perfil</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="Chow chow.webp" alt="Vini">
-                <div class="card-content">
-                    <h3 class="pet-name">Vini</h3>
-                    <p><strong>Raça:</strong> Chow Chow</p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Local:</strong> Curitiba - PR</p>
-                    <div class="card-footer">
-                        <span class="heart-icon">❤️</span>
-                       <a href="perfilcachorro.html"><button class="btn-perfil">Ver Perfil</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="labrador.jpeg" alt="Jhony">
-                <div class="card-content">
-                    <h3 class="pet-name">Jhony</h3>
-                    <p><strong>Raça:</strong> Labrador</p>
-                    <p><strong>Idade:</strong> 4 anos</p>
-                    <p><strong>Local:</strong> Tiradentes - MG</p>
-                    <div class="card-footer">
-                        <span class="heart-icon">❤️</span>
-                       <a href="perfilcachorro.html"><button class="btn-perfil">Ver Perfil</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="golden.jpg" alt="Mel">
-                <div class="card-content">
-                    <h3 class="pet-name">Mel</h3>
-                    <p><strong>Raça:</strong> Golden Retriever</p>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Local:</strong> Curitiba - PR</p>
-                    <div class="card-footer">
-                        <span class="heart-icon">❤️</span>
-                       <a href="perfilcachorro.html"><button class="btn-perfil">Ver Perfil</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=500&q=80" alt="Luna">
-                <div class="card-content">
-                    <h3 class="pet-name">Luna</h3>
-                    <p><strong>Raça:</strong> Beagle</p>
-                    <p><strong>Idade:</strong> 3 anos</p>
-                    <p><strong>Local:</strong> Santos - SP</p>
-                    <div class="card-footer">
-                        <span class="heart-icon">❤️</span>
-                       <a href="perfilcachorro.html"><button class="btn-perfil">Ver Perfil</button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="viralata.webp" alt="Amora">
-                <div class="card-content">
-                    <h3 class="pet-name">Amora</h3>
-                    <p><strong>Raça:</strong> Vira-lata (SRD)</p>
-                    <p><strong>Idade:</strong> 2 anos</p>
-                    <p><strong>Local:</strong> Rio de Janeiro - RJ</p>
-                    <div class="card-footer">
-                        <span class="heart-icon">❤️</span>
-                       <a href="perfilcachorro.html"><button class="btn-perfil">Ver Perfil</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="favorites-grid"></div>
     </main>
 
     <footer class="footer">
@@ -144,6 +70,6 @@
         </div>
     </footer>
 
-    <script src="../FavMens.js"></script>
+    <script src="../Javascript/favoritos.js" defer></script>
 </body>
 </html>
