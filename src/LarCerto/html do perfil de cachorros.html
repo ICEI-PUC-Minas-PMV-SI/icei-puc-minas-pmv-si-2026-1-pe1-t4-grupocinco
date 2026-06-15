@@ -268,7 +268,7 @@ body {
 ...................js.....................
 
 
-const perfilpetfavoritar = {
+const  id="btnFavoritar"= {
     nome: "Amora",
     favoritado: false
 };
@@ -277,14 +277,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const botaoFavoritar = document.getElementById("btnFavoritar");
 
     if (!botaoFavoritar) {
-        return;
+        return console.info(favoritado);
     }
-
-    const atualizarTexto = () => {
-        botaoFavoritar.textContent = perfilpetfavoritar.favoritado ? "Favoritado" : "Favoritar";
-    };
-
-    atualizarTexto();
+if(!id="btnPets" "click" link href=)
+  href=
+if(!id="btnFavoritos" "click" link href=)
+    href=
+if(!id="btnMensagens" "click" link href=)
+    href=
+if(!id="btnPerfil "click" link href=)
+    
 
     botaoFavoritar.addEventListener("click", () => {
         perfilpetfavoritar.favoritado = !perfilpetfavoritar.favoritado;
@@ -292,4 +294,3 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`Perfil favoritado: ${perfilpetfavoritar.nome} -> ${perfilpetfavoritar.favoritado}`);
     });
 });
-
