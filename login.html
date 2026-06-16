@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LarCerto</title>
+    <link rel="stylesheet" href="style02.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="script.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">🐾 LarCerto</div> 
+        <nav class="nav">
+               <li><a href="index.html">Início</a></li>
+                <li><a href="PessoasInteressadas.html">Adotantes</a></li>
+                <li><a href="favoritos.html">Favoritos</a></li>
+                <li><a href="mensagens.html">Mensagens</a></li>
+                <li><a href="PerfilDoador.html">Perfil</a></li>
+        </nav>
+       <button class="login-btn" onclick="window.location.href='login.html'">Entrar / Cadastrar</button>
+    </header>
+
+    <div class="container text-center mt-5">
+        <div class="logo-display">
+            🐾 LarCerto
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5 card p-4 shadow-sm login-card">
+                <form id="meuForm" onsubmit="event.preventDefault(); direcionarUsuario();">
+                    <div class="mb-3 text-start">
+                        <label for="login" class="form-label">Login:</label>
+                        <input type="text" id="login" name="login" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3 text-start">
+                        <label for="password" class="form-label">Senha:</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3 text-center"> 
+                        <p class="form-label mb-2">Como você deseja acessar a plataforma?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="adotar" name="acao" value="adotar" required>
+                            <label class="form-check-label" for="adotar">Adotante</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="doar" name="acao" value="doar" required>
+                            <label class="form-check-label" for="doar">Doador</label>
+                        </div>
+                    </div>
+
+                   <button type="submit" class="btn btn-warning w-100 mb-3 text-white" style="background-color: #F97316;">Entrar</button>
+                </form>
+
+                <hr class="my-4">
+
+                <div class="text-center">
+                    <p class="small text-muted mb-2">Ainda não tem uma conta?</p>
+                    <form action="cadastro.html" method="get">   
+                        <button type="submit" class="btn btn-outline-secondary w-100">Quero me registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <h3>LarCerto</h3>
+            <p>Conectando corações, transformando vidas.</p>
+            <p>Adote amor. Adote um pet.</p>
+        </div>
+        <div>
+            <h3>Institucional</h3>
+            <a href="#">Sobre nós</a>
+            <a href="#">Como funciona</a>
+            <a href="#">Política de privacidade</a>
+            <a href="#">Termos de uso</a>
+        </div>
+        <div>
+            <h3>Ajuda</h3>
+            <a href="#">Central de ajuda</a>
+            <a href="#">Dicas de adoção</a>
+            <a href="#">Contato</a>
+        </div>
+        <div>
+            <h3>Fique por dentro</h3>
+            <p>Receba novidades sobre adoção.</p>
+            <div class="newsletter">
+                <input type="email" placeholder="Seu e-mail" />
+                <button>Inscrever</button>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

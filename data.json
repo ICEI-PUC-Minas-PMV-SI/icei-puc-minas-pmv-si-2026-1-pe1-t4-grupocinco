@@ -1,0 +1,97 @@
+{
+  "usuarios": [
+    {
+      "id": "usr_1783556123001",
+      "tipo": "adotante",
+      "email": "fernando.silva@email.com",
+      "password": "senhaSegura123",
+      "name": "Fernando Silva",
+      "idnumber": "123.456.789-00",
+
+      "idade": 29,
+      "profissao": "Analista de Sistemas",
+      "cidade": "Contagem",
+      "estado": "MG",
+
+      "sobre": "Sempre tive animais em casa e procuro um companheiro para compartilhar meu dia a dia.",
+
+      "moradia": {
+        "tipo": "Casa",
+        "quintal": true
+      },
+
+      "experiencias": [
+        "Cachorro",
+        "Gato"
+      ],
+
+      "estiloVida": [
+        "Esportivo",
+        "Aventureiro"
+      ],
+
+      "procurandoPor": "Procuro um cão de porte pequeno ou médio para companhia.",
+
+      "fotoPerfil": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600",
+
+      "petInteresse": "pet_1783556987001"
+    },
+
+    {
+      "id": "usr_1783556123002",
+      "tipo": "adotante",
+      "email": "ana.costa@email.com",
+      "password": "Ana@2026",
+      "name": "Ana Costa",
+      "idnumber": "234.567.890-11",
+
+      "idade": 25,
+      "profissao": "Segurança",
+      "cidade": "Contagem",
+      "estado": "MG",
+
+      "sobre": "Adoro animais e tenho disponibilidade para oferecer muito carinho.",
+
+      "moradia": {
+        "tipo": "Apartamento",
+        "quintal": false
+      },
+
+      "experiencias": [
+        "Cachorro"
+      ],
+
+      "estiloVida": [
+        "Fitness",
+        "Esportivo",
+        "Aventureiro"
+      ],
+
+      "procurandoPor": "Um cão dócil e companheiro.",
+
+      "fotoPerfil": "https://img.magnific.com/fotos-gratis/close-up-de-jovem-profissional-feminina-fazendo-contato-visual-contra-fundo-colorido_662251-651.jpg?semt=ais_hybrid&w=740&q=80",
+
+      "petInteresse": "pet_1783556987001"
+    }
+  ],
+
+  "pets": [
+    {
+      "id": "pet_1783556987001",
+      "userId": "usr_1783556123003",
+      "petname": "Thor",
+      "raca": "Cavalier King Charles Spaniel",
+      "age": "2 anos",
+      "size": "Pequeno",
+      "sex": "Macho",
+      "personality": "Dócil e brincalhão",
+      "vacinas": [
+        "v8_v10",
+        "raiva"
+      ],
+      "fotos": [
+        "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=300&q=80"
+      ]
+    }
+  ]
+}

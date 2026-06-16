@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca/exibição</title>
+
+    <link rel="stylesheet" href="TelaExibiçao.css" />
+    <script src="TelaExibição.js" defer></script>
+    <script src="headerAvatar.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">🐾 LarCerto</div>
+
+      <nav class="nav">
+        <a href="index.html">Início</a>
+
+        <a id="menuPets" href="TelaExibição.html"> Pets </a>
+
+        <a id="menuFavoritos" href="favoritos.html"> Favoritos </a>
+
+        <a id="menuMensagens" href="mensagens.html"> Mensagens </a>
+
+        <a id="menuCadastrarPet" href="cadastropet.html" style="display: none">
+          Cadastrar Pet
+        </a>
+
+        <a id="menuPerfil" href="PerfilDoador.html"> Perfil </a>
+      </nav>
+
+      <button id="logoutBtn" class="login-btn">Sair</button>
+
+      <div class="user">
+        <img
+          src="https://img.magnific.com/fotos-gratis/close-up-de-jovem-profissional-feminina-fazendo-contato-visual-contra-fundo-colorido_662251-651.jpg?semt=ais_hybrid&w=740&q=80"
+          alt="Usuário"
+        />
+      </div>
+    </header>
+
+    <section class="search-area">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Buscar por nome, raça ou localização..."
+      />
+      <button>🔍</button>
+    </section>
+
+    <main class="container">
+      <aside class="sidebar">
+        <div class="filter-card">
+          <div class="filter-header">
+            <h3>Filtros</h3>
+            <button id="clearFilters" class="clear-btn">Limpar</button>
+          </div>
+
+          <label>Idade</label>
+          <select id="idadeFilter">
+            <option>Todas</option>
+            <option>Filhote</option>
+            <option>Adulto</option>
+          </select>
+
+          <label>Porte</label>
+          <select id="porteFilter">
+            <option>Todos</option>
+            <option>Pequeno</option>
+            <option>Médio</option>
+            <option>Grande</option>
+          </select>
+
+          <label>Gênero</label>
+          <select id="generoFilter">
+            <option>Todos</option>
+            <option>Macho</option>
+            <option>Fêmea</option>
+          </select>
+
+          <label>Temperamento</label>
+          <select id="temperamentoFilter">
+            <option>Todos</option>
+            <option>Calmo</option>
+            <option>Brincalhão</option>
+            <option>Protetor</option>
+          </select>
+
+          <label>Localização</label>
+          <input
+            id="localizacaoFilter"
+            type="text"
+            placeholder="Cidade ou estado"
+          />
+        </div>
+
+        <div class="recommended">
+          <h3>Cães recomendados</h3>
+
+          <div class="mini-pet">
+            <img
+              src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=300&q=80"
+              alt="Cachorro"
+            />
+
+            <div>
+              <strong>Mel</strong>
+              <p>2 anos • Fêmea</p>
+              <p>São Paulo, SP</p>
+            </div>
+          </div>
+
+          <div class="mini-pet">
+            <img
+              src="https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=300&q=80"
+              alt="Cachorro"
+            />
+
+            <div>
+              <strong>Thor</strong>
+              <p>3 anos • Macho</p>
+              <p>Campinas, SP</p>
+            </div>
+          </div>
+
+          <button class="see-more">Ver mais</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="title-area">
+          <div>
+            <h1>Encontre seu novo melhor amigo</h1>
+            <p>Adote, transforme uma vida e ganhe um amigo para sempre.</p>
+          </div>
+
+          <span>0 cães disponíveis</span>
+        </div>
+
+        <!-- PETS CARREGADOS PELO JSON -->
+
+        <div id="petGrid" class="pet-grid"></div>
+
+        <div id="semResultados"></div>
+
+        <div class="pagination">
+          <button>‹</button>
+          <button class="active-page">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>...</button>
+          <button>16</button>
+          <button>›</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h3>AdotaPet</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+      </div>
+
+      <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+
+      <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div>
+        <h3>Fique por dentro</h3>
+
+        <p>Receba novidades sobre adoção.</p>
+
+        <div class="newsletter">
+          <input type="email" placeholder="Seu e-mail" />
+          <button>Inscrever</button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

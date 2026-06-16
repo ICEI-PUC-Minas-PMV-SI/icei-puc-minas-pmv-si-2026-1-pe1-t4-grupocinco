@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LarCerto - Início</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+:root{
+    --laranja:#f97316;
+    --preto:#111827;
+    --cinza:#6b7280;
+    --cinza-claro:#f3f4f6;
+    --branco:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#fff;
+    color:var(--preto);
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    height:80px;
+    border-bottom:1px solid #e5e7eb;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header{
+    width:90%;
+    height:100%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:30px;
+    font-weight:800;
+}
+
+.logo i{
+    color:var(--laranja);
+}
+
+.nav{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+.nav a{
+    text-decoration:none;
+    color:var(--cinza);
+    font-weight:600;
+    transition:0.3s;
+}
+
+.nav a:hover,
+.nav .active{
+    color:var(--laranja);
+}
+
+.login-btn{
+    text-decoration:none;
+    border:1px solid var(--laranja);
+    color:var(--laranja);
+    padding:12px 24px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:var(--laranja);
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    width:90%;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-text span{
+    color:var(--laranja);
+}
+
+.hero-text p{
+    font-size:18px;
+    color:var(--cinza);
+    margin-bottom:35px;
+    line-height:1.7;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.btn-main{
+    background:var(--laranja);
+    color:white;
+    border:none;
+    padding:16px 28px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-main:hover{
+    opacity:0.9;
+}
+
+.btn-secondary{
+    background:transparent;
+    border:2px solid var(--laranja);
+    color:var(--laranja);
+    padding:16px 28px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-secondary:hover{
+    background:var(--laranja);
+    color:white;
+}
+
+/* HERO IMAGE */
+
+.hero-image img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* BENEFÍCIOS */
+
+.features{
+    width:90%;
+    margin:80px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.07);
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-5px);
+}
+
+.feature-card i{
+    font-size:40px;
+    color:var(--laranja);
+    margin-bottom:20px;
+}
+
+.feature-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.feature-card p{
+    color:var(--cinza);
+    line-height:1.6;
+}
+
+/* PETS */
+
+.pets{
+    width:90%;
+    margin:80px auto;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+.pets-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.pet-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.pet-card:hover{
+    transform:translateY(-5px);
+}
+
+.pet-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.pet-info{
+    padding:20px;
+}
+
+.pet-info h3{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.pet-info p{
+    color:var(--cinza);
+    margin-bottom:8px;
+}
+
+.adopt-btn{
+    width:100%;
+    margin-top:15px;
+    background:var(--laranja);
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:var(--preto);
+    color:white;
+    margin-top:80px;
+    padding:60px 10%;
+}
+
+.footer-content{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+}
+
+.footer-col h3{
+    margin-bottom:20px;
+}
+
+.footer-col a{
+    display:block;
+    color:#d1d5db;
+    text-decoration:none;
+    margin-bottom:10px;
+}
+
+.footer-col a:hover{
+    color:var(--laranja);
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.social-icons i{
+    font-size:22px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.social-icons i:hover{
+    color:var(--laranja);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text{
+        text-align:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .header{
+        flex-direction:column;
+        height:auto;
+        padding:20px 0;
+        gap:20px;
+    }
+
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="header">
+
+        <div class="logo">
+            <i class="fas fa-paw"></i>
+            LarCerto
+        </div>
+
+        <ul class="nav">
+            <li><a href="#" class="active">Início</a></li>
+            <li><a href="TelaExibição.html">Pets</a></li>
+            <li><a href="login.html">Favoritos</a></li>
+            <li><a href="login.html">Mensagens</a></li>
+            <li><a href="login.html">Perfil</a></li>
+        </ul>
+
+        <a href="login.html" class="login-btn">
+            Entrar / Cadastrar
+        </a>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Encontre seu novo
+            <span>melhor amigo</span>
+        </h1>
+
+        <p>
+            Conectamos animais resgatados a lares cheios de amor.
+            Adote um pet e transforme uma vida hoje mesmo.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="btn-main">
+                <a href="login.html">Quero Adotar</a>
+                
+            </button>
+
+            <button class="btn-secondary">
+            <a href="login.html">Conhecer Pets</a>
+                
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1200&auto=format&fit=crop">
+
+    </div>
+
+</section>
+
+<!-- BENEFÍCIOS -->
+
+<section class="features">
+
+    <div class="feature-card">
+
+        <i class="fas fa-heart"></i>
+
+        <h3>Adoção Segura</h3>
+
+        <p>
+            Encontre pets cadastrados por ONGs e protetores confiáveis.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i class="fas fa-paw"></i>
+
+        <h3>Muitos Pets</h3>
+
+        <p>
+            Diversos cães e gatos esperando por um novo lar.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <i class="fas fa-comments"></i>
+
+        <h3>Contato Fácil</h3>
+
+        <p>
+            Converse diretamente com os responsáveis pelos animais.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PETS -->
+
+<section class="pets">
+
+    <h2 class="section-title">
+        Pets em Destaque
+    </h2>
+
+    <div class="pets-grid">
+
+        <div class="pet-card">
+
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="pet-info">
+
+                <h3>Luna</h3>
+
+                <p>Buldogue francês• 2 anos</p>
+
+                <p>Belo Horizonte - MG</p>
+
+                <button class="adopt-btn">
+                    <a href="login.html">Quero Adotar</a> 
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="pet-card">
+
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="pet-info">
+
+                <h3>Thor</h3>
+
+                <p>Corgi • 1 ano</p>
+
+                <p>Contagem - MG</p>
+
+                <button class="adopt-btn">
+                    <a href="login.html">Quero Adotar</a>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="pet-card">
+
+            <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="pet-info">
+
+                <h3>Mel</h3>
+
+                <p> Pug • 3 anos</p>
+
+                <p>Santa Luzia - MG</p>
+
+                <button class="adopt-btn">
+                    <a href="login.html"> Quero Adotar</a>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

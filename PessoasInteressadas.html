@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Gerenciar Adotantes - AdotaPet</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="PessoasInteressadas.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+
+    <header class="header">
+      <div class="logo">🐾 LarCerto</div>
+
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="PessoasInteressadas.html" class="active">Interessados</a>
+        <a href="TelaExibição.html" id="painelDoador" style="display: none">Painel Doador</a>
+        <a href="TelaExibição.html" id="menuPets">Pets</a>
+        <a href="mensagens.html">Mensagens</a>
+        <a href="PerfilDoador.html">Perfil</a>
+      </nav>
+
+      <div class="header-right">
+        <input type="text" placeholder="Buscar adotantes..." />
+
+        <button type="button" id="logoutBtn" class="logout-btn">Sair</button>
+
+        <div class="user">
+          <img
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+            alt="Usuário"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+
+    <main class="container">
+      <!-- SIDEBAR -->
+
+      <aside class="sidebar">
+        <div class="filter-card">
+          <div class="filter-top">
+            <h3>Filtros</h3>
+
+            <button id="clearFilters" class="clear-btn">Limpar</button>
+          </div>
+
+          <label>Faixa Etária</label>
+
+          <select id="filtroIdade">
+            <option>Todas</option>
+            <option>18 - 25</option>
+            <option>26 - 35</option>
+            <option>36 - 50</option>
+          </select>
+
+          <label>Experiência com Pets</label>
+
+          <select id="filtroExperiencia">
+            <option>Todos</option>
+            <option>Iniciante</option>
+            <option>Intermediário</option>
+            <option>Experiente</option>
+          </select>
+
+          <label>Tipo de Moradia</label>
+
+          <select id="filtroMoradia">
+            <option>Todos</option>
+            <option>Casa</option>
+            <option>Apartamento</option>
+          </select>
+
+          <label>Localização</label>
+
+          <input id="filtroCidade" type="text" placeholder="Cidade ou estado" />
+
+          <button id="aplicarFiltros" class="filter-btn">
+            Aplicar filtros
+          </button>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+
+      <section class="content">
+        <div class="content-top">
+          <div>
+            <h1>Visualize e gerencie perfis de adotantes</h1>
+
+            <p class="description">
+              Explore os perfis dos interessados em adoção e encontre o lar
+              ideal para cada pet.
+            </p>
+          </div>
+
+          <span class="results"> 0 adotantes encontrados </span>
+        </div>
+
+        <!-- GRID GERADA PELO JAVASCRIPT -->
+
+        <div class="adopters-grid" id="adoptersGrid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h3>AdotaPet</h3>
+        <p>Conectando corações, transformando vidas.</p>
+        <p>Adote amor. Adote um pet.</p>
+      </div>
+
+      <div>
+        <h3>Institucional</h3>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos de uso</a>
+      </div>
+
+      <div>
+        <h3>Ajuda</h3>
+        <a href="#">Central de ajuda</a>
+        <a href="#">Dicas de adoção</a>
+        <a href="#">Contato</a>
+      </div>
+
+      <div>
+        <h3>Fique por dentro</h3>
+
+        <p>Receba novidades sobre adoção.</p>
+
+        <div class="newsletter">
+          <input type="email" placeholder="Seu e-mail" />
+          <button>Inscrever</button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+
+    <script src="headerAvatar.js"></script>
+    <script src="PessoasInteressadas.js"></script>
+  </body>
+</html>
